@@ -107,7 +107,7 @@ You can also view the following key documents:
 
 ## Contribution Guidelines
 
-At this stage, the repository is intended to be maintained by the project owner and **Drewid101** only until more collaborators are invited through GitHub repository settings.
+At this stage, the repository is intended to be maintained by the project owner **Jude Osamor ** and **Drewid101** only until more collaborators are invited through GitHub repository settings.
 
 We welcome contributions from team members.
 Please ensure:
