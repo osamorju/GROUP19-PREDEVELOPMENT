@@ -116,6 +116,7 @@ You can also view the following key documents:
 - [Contribution Guidelines](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)
 - [Running Locally and Publishing Reports](LOCAL_RUN_AND_REPORTS.md)
+- [Testing the Published Containers](TEST_PUBLISHED_CONTAINERS.md)
 ---
 
 ## Contribution Guidelines
