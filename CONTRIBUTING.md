@@ -26,9 +26,9 @@ There are many ways you can contribute to the project, including but not limited
 
    Make sure to create a new branch from the `develop` branch for your work. Use the appropriate naming convention based on the type of work you're doing:
 
-    * **Feature**: `feature/[your-studentid-name]/[your-feature-name]`
-    * **Bugfix**: `bugfix/[your-studentid-name]/[your-bugfix-name]`
-    * **Hotfix**: `hotfix/[your-studentid-name]/[your-hotfix-name]`
+    * **Feature**: `feature/your-studentid-name/your-feature-name`
+    * **Bugfix**: `bugfix/your-studentid-name/your-bugfix-name`
+    * **Hotfix**: `hotfix/your-studentid-name/your-hotfix-name`
 
    Example:
 
@@ -106,7 +106,7 @@ Please ensure that your contributions adhere to our [Code of Conduct](CODE_OF_CO
 
 If you have any questions about the contribution process or need help, feel free to reach out to the **Project Owner** or **Scrum Master**:
 
-* **Product Owner** and **Scrum Master**: contact details to be added by Group 19
+* **Product Owner: Jude Osamor : 40742247@live.napier.ac.uk  ** and **Scrum Master**: Daniel Andrew : 40680006@live.napier.ac.uk contact details to be added by Group 19
 
 We look forward to your contributions!
 
