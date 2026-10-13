@@ -108,7 +108,7 @@ Please ensure that your contributions adhere to our [Code of Conduct](CODE_OF_CO
 
 If you have any questions about the contribution process or need help, feel free to reach out to the **Project Owner** or **Scrum Master**:
 
-* **Product Owner: Jude Osamor : 40742247@live.napier.ac.uk  ** and **Scrum Master**: Daniel Andrew : 40680006@live.napier.ac.uk contact details to be added by Group 19
+* **Product Owner**: Jude Osamor : 40742247@live.napier.ac.uk  ** and **Scrum Master**: Daniel Andrew : 40680006@live.napier.ac.uk contact details to be added by Group 19
 
 We look forward to your contributions!
 
