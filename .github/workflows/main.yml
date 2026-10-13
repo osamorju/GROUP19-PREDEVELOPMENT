@@ -27,14 +27,14 @@ jobs:
   # Stage 1: Run the fast Java tests without starting a database.
   unit-tests:
     name: Unit tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Download the source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Java 24
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: "24"
           distribution: temurin
@@ -44,7 +44,7 @@ jobs:
         run: mvn --batch-mode --no-transfer-progress test
 
       - name: Send unit test coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: target/site/jacoco/jacoco.xml
@@ -54,14 +54,14 @@ jobs:
   # Stage 2: Start the database and test the Java code against real data.
   integration-tests:
     name: Integration tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Download the source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Java 24
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: "24"
           distribution: temurin
@@ -84,7 +84,7 @@ jobs:
           -Dtest=com.napier.gp19.AppIntegrationTest test
 
       - name: Send integration test coverage to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: target/site/jacoco/jacoco.xml
@@ -102,13 +102,13 @@ jobs:
     needs:
       - unit-tests
       - integration-tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       IMAGE_TAG: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
 
     steps:
       - name: Download the source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Build the application and database images
         run: docker compose build
@@ -134,7 +134,7 @@ jobs:
           echo "All 32 reports were generated."
 
       - name: Save pull request reports for review
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: generated-reports-pr-${{ github.event.pull_request.number }}
           path: generated-reports/
@@ -151,7 +151,7 @@ jobs:
     needs:
       - unit-tests
       - integration-tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: write
@@ -170,16 +170,16 @@ jobs:
 
     steps:
       - name: Download the source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Enable ARM builds
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
 
       - name: Enable Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Sign in to GitHub Container Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -187,13 +187,13 @@ jobs:
 
       - name: Create image tags and labels
         id: metadata
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ matrix.image }}
           tags: type=raw,value=${{ env.CANDIDATE_TAG }}
 
       - name: Compile the source and publish the candidate image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
@@ -210,7 +210,7 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
       - build-candidate-images
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: read
@@ -219,10 +219,10 @@ jobs:
 
     steps:
       - name: Download the source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Sign in to GitHub Container Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -252,7 +252,7 @@ jobs:
           echo "All 32 reports were generated from the published images."
 
       - name: Save the generated reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: generated-reports
           path: generated-reports/
@@ -268,17 +268,17 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
       - published-container-test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       packages: write
 
     steps:
       - name: Enable Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Sign in to GitHub Container Registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -307,16 +307,16 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
       - promote-latest
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
 
     steps:
       - name: Download the source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Java 24
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: "24"
           distribution: temurin
@@ -326,7 +326,7 @@ jobs:
         run: mvn --batch-mode --no-transfer-progress package -DskipTests
 
       - name: Download the tested reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: generated-reports
           path: reports
@@ -352,7 +352,7 @@ jobs:
           fi
 
       - name: Publish the reports branch
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: reports
           folder: reports
