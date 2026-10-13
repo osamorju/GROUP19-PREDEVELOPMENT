@@ -102,6 +102,7 @@ You can also view the following key documents:
 - [Use Cases](USE_CASES.md)
 - [Contribution Guidelines](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)
+- [Running Locally and Publishing Reports](LOCAL_RUN_AND_REPORTS.md)
 ---
 
 ## Contribution Guidelines
