@@ -1,118 +1,131 @@
-# Running the Reports Locally and Publishing Them to GitHub
+# Running the Reports Locally and Publishing Them
 
-This guide explains how the population reports are generated on a developer's
-computer and then published to the GitHub repository. GitHub stores the report
-files after they are pushed; it does not generate them automatically.
+The project uses two containers:
 
-## How the workflow fits together
+1. The `db` container runs MySQL and loads `database/db/world.sql`.
+2. The `app` container runs the compiled Java application and creates 32
+   Markdown reports.
 
-1. The application in `src/main/java/com/napier/gp19/App.java` connects to a
-   MySQL database containing the `world` schema.
-2. The SQL dataset is in `database/db/world.sql`.
-3. The application writes Markdown files to `reports/`. It generates the 32
-   numbered report files there.
-4. Git stages and commits changed report files. A push uploads that commit to
-   the selected GitHub branch.
-
-The `reports/` directory in GitHub is the published output. The latest
-32-report commit is on the `preDevelopment` branch.
+Docker Compose starts the database first. It waits for MySQL to become healthy
+before it starts the application.
 
 ## Requirements
 
+To use the published images, install Docker with Docker Compose.
+
+To work directly with the Java source, also install:
+
 - JDK 24
 - Maven 3.9 or later
-- MySQL Server, or Docker Desktop with Docker Compose
-- Git and access to the GitHub repository
+- Git
 
-The application currently connects with the `root` MySQL account and password
-`root`, using the database location supplied as an argument (the default is
-`localhost:33060`). These credentials are defined in the application and are
-for the coursework development setup only; do not use them for a production
-database.
+## School Database Settings
 
-## Prepare the database
+The Compose setup uses the MySQL `root` account with `root` as its password.
+This keeps the school project simple.
 
-The database image in `docker-compose.yml` initializes its `world` database
-from `database/db/world.sql`. If using a local MySQL installation instead,
-create/configure a development server on port `33060`, then import the dataset.
-For example, in PowerShell from the repository root:
+Do not use this setup in production. Production should use a limited database
+user, a strong unique password, and Docker secrets or a managed secret service.
 
-```powershell
-Get-Content -Raw .\database\db\world.sql |
-  mysql -uroot -p --host=127.0.0.1 --port=33060
+## Build Both Images from Source
+
+Run this command from the repository root:
+
+```bash
+docker compose build
 ```
 
-Enter the MySQL password when prompted. The dump creates and loads the `world`
-database, so only import it into a development instance where replacing that
-database is acceptable.
+The application image uses a multi-stage build. Its first stage compiles the
+source and creates `gp19CourseWork.jar`. Its final stage contains only the Java
+runtime, the compiled JAR, and the reports directory.
 
-## Build and run
+The database image uses MySQL 8.4 and includes the World SQL dataset.
 
-From the repository root:
+## Generate Reports from Local Images
 
-```powershell
+```bash
+docker compose up --no-build --abort-on-container-exit --exit-code-from app
+docker compose cp app:/app/reports/. reports/
+docker compose down --volumes
+```
+
+The `--exit-code-from app` option makes the command fail if the report
+application fails. Removing the volume gives the next run a clean database.
+
+## Check Container Health
+
+Use these commands when debugging:
+
+```bash
+docker compose ps --all
+docker compose logs db
+docker compose logs app
+```
+
+The database shows `healthy` when MySQL accepts connections. The application
+shows `healthy` while it runs. After it generates the reports, `Exited (0)`
+means it completed successfully.
+
+## Generate Reports from Public GHCR Images
+
+The workflow publishes:
+
+- `ghcr.io/osamorju/group19-predevelopment-app:latest`
+- `ghcr.io/osamorju/group19-predevelopment-database:latest`
+
+Pull and run them:
+
+```bash
+docker compose pull
+docker compose up --no-build --abort-on-container-exit --exit-code-from app
+docker compose cp app:/app/reports/. reports/
+docker compose down --volumes
+```
+
+No Java, Maven, or local MySQL installation is required for this method.
+
+GitHub creates new container packages as private packages. After the first
+successful workflow run, the repository owner must open each package setting
+and change its visibility to **Public**. Public images can be pulled without
+running `docker login`.
+
+## Run the Java Application Directly
+
+Start only the database:
+
+```bash
+docker compose build db
+docker compose up --detach --no-build --wait db
+```
+
+```bash
 mvn clean package
-java -cp target\gp19CourseWork.jar com.napier.gp19.App localhost:33060 0
+java -jar target/gp19CourseWork.jar localhost:33060 1000
 ```
 
-The application must be able to connect to MySQL. On success, it prints the
-reports and writes Markdown output under `reports/`. The verified local run
-used MySQL populated from the included SQL dataset.
+Stop the database when finished:
 
-With Docker Desktop available, the repository also defines a Compose setup:
-
-```powershell
-mvn package
-docker compose up --build
+```bash
+docker compose down --volumes
 ```
 
-The Compose app service runs the packaged application against its `db` service.
-Stop the services with `docker compose down`.
+## GitHub Actions Pipeline
 
-## Publish reports to GitHub
+The workflow on the `master` branch performs these stages:
 
-After generating the reports, inspect the changes before committing:
+1. Run unit tests.
+2. Run integration tests with the database container.
+3. Compile the source and build multi-platform application and database images.
+4. Publish immutable `sha-<commit>` image tags.
+5. Pull those tags and generate all 32 reports.
+6. Point `latest` to the tested images.
+7. Publish the JAR release and update the `reports` branch.
 
-```powershell
-git status --short
-git diff -- reports/
-```
+Pull requests build and test the two images but do not publish them.
 
-Then stage, commit, and push the report changes to `preDevelopment`:
+## Current Published Output
 
-```powershell
-git add reports/
-git commit -m "Generate population reports"
-git push origin preDevelopment
-```
-
-GitHub authentication may open a sign-in flow through Git Credential Manager.
-If Git does not know the commit author yet, configure a name and email locally
-for this repository:
-
-```powershell
-git config user.name "Your Name"
-git config user.email "your-verified-github-email@example.com"
-```
-
-To verify that the push completed:
-
-```powershell
-git fetch origin
-git status -sb
-```
-
-The branch should no longer show an ahead count. Open the repository's
-`preDevelopment` branch and browse the `reports/` directory to view the
-published output.
-
-Git only lists files whose contents changed in a commit. If some reports are
-unchanged, they remain available in the branch but will not appear in that
-commit's changed-file list. Do not make artificial edits just to make an
-unchanged file appear as changed.
-
-## Current published output
-
-- Branch: `preDevelopment`
-- Reports directory: [`reports/`](https://github.com/osamorju/GROUP19-PREDEVELOPMENT/tree/preDevelopment/reports)
-- Report commit: [`7ea59cc`](https://github.com/osamorju/GROUP19-PREDEVELOPMENT/commit/7ea59cc1551b982616ac962781a7d5118075cbd4)
+- Source branch: `master`
+- Reports branch: `reports`
+- Reports directory:
+  <https://github.com/osamorju/GROUP19-PREDEVELOPMENT/tree/reports>

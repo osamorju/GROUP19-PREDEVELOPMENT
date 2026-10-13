@@ -34,36 +34,47 @@ public class App {
      * @param delay delay in milliseconds between connection retries
      */
     public void connect(String location, int delay) {
+        if (delay < 0) {
+            throw new IllegalArgumentException("Connection retry delay cannot be negative.");
+        }
+
         try {
-            // Load MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
+            throw new IllegalStateException("Could not load the MySQL driver.", e);
         }
 
-        // Database connection info
-        String url = "jdbc:mysql://" + location + "/world?useSSL=false&allowPublicKeyRetrieval=true";
-        String user = "root";
-        String password = "root";
+        String database = environmentValue("DB_NAME", "world");
+        String user = environmentValue("DB_USER", "root");
+        String password = environmentValue("DB_PASSWORD", "root");
+        String url = "jdbc:mysql://" + location + "/" + database
+                + "?useSSL=false&allowPublicKeyRetrieval=true";
+        int retries = environmentInteger("DB_CONNECT_RETRIES", 30, 1);
+        SQLException lastException = null;
 
-        int retries = 100;
-        for (int i = 0; i < retries; ++i) {
-            System.out.println("Connecting to database...");
+        for (int attempt = 1; attempt <= retries; ++attempt) {
             try {
-                // Wait a bit for db to start
-                Thread.sleep(delay);
-                // Connect to database
+                if (attempt > 1 && delay > 0) {
+                    Thread.sleep(delay);
+                }
+
+                System.out.println("Connecting to database...");
                 conn = DriverManager.getConnection(url, user, password);
                 System.out.println("Successfully connected");
-                break;
+                return;
             } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " + i);
+                lastException = sqle;
+                System.out.println("Failed to connect to database attempt " + attempt);
                 System.out.println(sqle.getMessage());
             } catch (InterruptedException ie) {
-                System.out.println("Thread interrupted? Should not happen.");
+                Thread.currentThread().interrupt();
+                throw new IllegalStateException("Database connection retry was interrupted.", ie);
             }
         }
+
+        throw new IllegalStateException(
+                "Could not connect to the database after " + retries + " attempts.",
+                lastException);
     }
 
     /**
@@ -81,6 +92,32 @@ public class App {
         }
     }
 
+    private static String environmentValue(String name, String defaultValue) {
+        String value = System.getenv(name);
+        return value == null || value.isBlank() ? defaultValue : value;
+    }
+
+    private static int environmentInteger(String name, int defaultValue, int minimum) {
+        String value = System.getenv(name);
+        if (value == null || value.isBlank()) {
+            return defaultValue;
+        }
+
+        return parseInteger(name, value, minimum);
+    }
+
+    private static int parseInteger(String name, String value, int minimum) {
+        try {
+            int parsedValue = Integer.parseInt(value);
+            if (parsedValue < minimum) {
+                throw new IllegalArgumentException(name + " must be at least " + minimum + ".");
+            }
+            return parsedValue;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(name + " must be a whole number.", e);
+        }
+    }
+
     /**
      * Main method: executes all reports and writes them to Markdown files.
      *
@@ -90,12 +127,16 @@ public class App {
         App app = new App();
         ReportWriter writer = new ReportWriter();
 
-        // Connect to database using default or provided location and delay
-        if(args.length < 1){
-            app.connect("localhost:33060", 30000);
-        }else{
-            app.connect(args[0], Integer.parseInt(args[1]));
-        }
+        String host = environmentValue("DB_HOST", "localhost");
+        int port = environmentInteger("DB_PORT", 33060, 1);
+        String location = args.length >= 1 && !args[0].isBlank()
+                ? args[0]
+                : host + ":" + port;
+        int delay = args.length >= 2
+                ? parseInteger("Connection retry delay", args[1], 0)
+                : environmentInteger("DB_CONNECT_RETRY_DELAY_MS", 1000, 0);
+
+        app.connect(location, delay);
 
         // ============================================================
         // Reports 1-32: Generate, print, and save all reports

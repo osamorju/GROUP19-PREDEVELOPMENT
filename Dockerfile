@@ -1,11 +1,28 @@
-# Use the latest eclipse-temurin image as the base
-FROM eclipse-temurin:24
+# Build stage: compile the Java source and create the application JAR.
+FROM maven:3.9-eclipse-temurin-24 AS build
 
-# Set the working directory in the container
+WORKDIR /build
+
+# Copy the Maven file first so Docker can reuse downloaded dependencies.
+COPY pom.xml .
+RUN mvn --batch-mode --no-transfer-progress dependency:go-offline
+
+COPY src ./src
+RUN mvn --batch-mode --no-transfer-progress clean package -DskipTests
+
+# Runtime stage: keep only Java and the compiled application JAR.
+FROM eclipse-temurin:24-jre AS runtime
+
+LABEL org.opencontainers.image.source="https://github.com/osamorju/GROUP19-PREDEVELOPMENT"
+
 WORKDIR /app
 
-# Copy the JAR file from the build context into the container
-COPY ./target/gp19CourseWork.jar /app/
+RUN useradd --create-home --uid 10001 appuser \
+    && mkdir -p /app/reports \
+    && chown -R appuser:appuser /app
 
-# Define the command to run the app
-ENTRYPOINT ["java", "-jar", "gp19CourseWork.jar", "db:3306", "30000"]
+COPY --from=build --chown=appuser:appuser /build/target/gp19CourseWork.jar /app/app.jar
+
+USER appuser
+
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

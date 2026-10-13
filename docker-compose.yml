@@ -1,17 +1,57 @@
-version: "3.8"
+name: group19-reports
 
 services:
-  app:
-    build: .
-    depends_on:
-      - db
-
+  # The database image contains MySQL and the World sample data.
   db:
-    build: database/
-    restart: always
+    image: ghcr.io/osamorju/group19-predevelopment-database:${IMAGE_TAG:-latest}
+    build:
+      context: ./database
+      dockerfile: Dockerfile
     environment:
+      # School project only: never use "root" as a production password.
+      # Production should use a limited user and inject a strong password
+      # through Docker secrets or a managed secret service.
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: world
       MYSQL_ROOT_HOST: "%"
     ports:
       - "33060:3306"
+    volumes:
+      - database-data:/var/lib/mysql
+    # The database is healthy when MySQL accepts a local connection.
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+  # The app waits for MySQL, generates the reports, and then exits.
+  app:
+    image: ghcr.io/osamorju/group19-predevelopment-app:${IMAGE_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: world
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_CONNECT_RETRIES: "30"
+      DB_CONNECT_RETRY_DELAY_MS: "1000"
+    # The app is healthy when it can read its JAR and write report files.
+    healthcheck:
+      test: ["CMD-SHELL", "test -r /app/app.jar && test -w /app/reports"]
+      # This batch job finishes quickly, so check twice each second.
+      interval: 500ms
+      timeout: 1s
+      retries: 3
+      start_period: 0s
+
+volumes:
+  database-data:

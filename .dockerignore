@@ -1,0 +1,9 @@
+.git
+.github
+.idea
+.vscode
+database
+reports
+target
+*.drawio
+*.md

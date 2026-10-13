@@ -1,49 +1,49 @@
-name: Java CI with Docker
+name: Java CI and Container Delivery
 
 on:
   push:
     branches:
       - master
-      - develop
-      - preDevelopment
+  pull_request:
+    branches:
+      - master
   workflow_dispatch:
 
+# Stop an older run when a newer commit starts on the same branch.
+concurrency:
+  group: group19-pipeline-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  APP_IMAGE: ghcr.io/osamorju/group19-predevelopment-app
+  DATABASE_IMAGE: ghcr.io/osamorju/group19-predevelopment-database
+  CANDIDATE_TAG: sha-${{ github.sha }}
+
+# Jobs receive read access unless a later job asks for more access.
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  UnitTests:
-    name: Unit Tests
+  # Stage 1: Run the fast Java tests without starting a database.
+  unit-tests:
+    name: Unit tests
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Download the source code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 24
+      - name: Install Java 24
         uses: actions/setup-java@v4
         with:
-          java-version: '24'
-          distribution: 'temurin'
+          java-version: "24"
+          distribution: temurin
+          cache: maven
 
-      - name: Run Unit Tests
-        run: |
-          mvn -Dtest=com.napier.gp19.CityUnitTest test
-          mvn -Dtest=com.napier.gp19.CountryUnitTest test
-          mvn -Dtest=com.napier.gp19.CountryLanguageUnitTest test
-          mvn -Dtest=com.napier.gp19.CapitalCitiesReportsUnitTest test
-          mvn -Dtest=com.napier.gp19.CitiesReportsUnitTest test
-          mvn -Dtest=com.napier.gp19.CountriesReportsUnitTest test
-          mvn -Dtest=com.napier.gp19.LanguagePopulationReportUnitTest test
-          mvn -Dtest=com.napier.gp19.PopulationCityReportUnitTest test
-          mvn -Dtest=com.napier.gp19.PopulationContinentReportUnitTest test
-          mvn -Dtest=com.napier.gp19.PopulationCountryReportUnitTest test
-          mvn -Dtest=com.napier.gp19.PopulationDistrictReportUnitTest test
-          mvn -Dtest=com.napier.gp19.PopulationRegionReportUnitTest test
-          mvn -Dtest=com.napier.gp19.PopulationWorldReportUnitTest test
-          mvn -Dtest=com.napier.gp19.PopulationUtilsUnitTest test
-          mvn -Dtest=com.napier.gp19.ReportWriterUnitTest test
+      - name: Run all unit tests
+        run: mvn --batch-mode --no-transfer-progress test
 
-      - name: Upload coverage to Codecov
+      - name: Send unit test coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -51,29 +51,39 @@ jobs:
           flags: UnitTests
           verbose: true
 
-  IntegrationTests:
-    name: Integration Tests
+  # Stage 2: Start the database and test the Java code against real data.
+  integration-tests:
+    name: Integration tests
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Download the source code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 24
+      - name: Install Java 24
         uses: actions/setup-java@v4
         with:
-          java-version: '24'
-          distribution: 'temurin'
+          java-version: "24"
+          distribution: temurin
+          cache: maven
 
-      - name: Integration Tests
-        run: |
-          docker build -t database ./database
-          docker run --name world -dp 33060:3306 database
-          mvn -Dtest=com.napier.gp19.AppIntegrationTest test
-          docker stop world
-          docker rm world
-          docker image rm database
+      - name: Build the database image
+        run: docker compose build db
 
-      - name: Upload coverage to Codecov
+      - name: Start the database and wait until it is ready
+        run: docker compose up --detach --no-build --wait db
+
+      - name: Run the integration tests
+        env:
+          DB_NAME: world
+          DB_USER: root
+          DB_PASSWORD: root
+          DB_CONNECT_RETRIES: "30"
+        run: >-
+          mvn --batch-mode --no-transfer-progress
+          -Dtest=com.napier.gp19.AppIntegrationTest test
+
+      - name: Send integration test coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
@@ -81,39 +91,269 @@ jobs:
           flags: IntegrationTests
           verbose: true
 
-  BuildAndRelease:
-     name: Build, Start docker-compose, and Deploy Release
-     runs-on: ubuntu-latest
-     steps:
-       - name: Checkout code
-         uses: actions/checkout@v4
+      - name: Stop the integration test database
+        if: always()
+        run: docker compose down --volumes --remove-orphans
 
-       - name: Set up JDK 24
-         uses: actions/setup-java@v4
-         with:
-           java-version: '24'
-           distribution: 'temurin'
+  # Stage 3A: Pull requests build both images locally and run them together.
+  pull-request-container-test:
+    name: Pull request container test
+    if: github.event_name == 'pull_request'
+    needs:
+      - unit-tests
+      - integration-tests
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
 
-       - name: Build and Start docker-compose
-         run: |
-           mvn package -DskipTests
-           docker compose up --abort-on-container-exit
+    steps:
+      - name: Download the source code
+        uses: actions/checkout@v4
 
-       - name: Deploy Release
-         uses: marvinpinto/action-automatic-releases@latest
-         with:
-           repo_token: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
-           prerelease: false
-           automatic_release_tag: latest
-           files: ./target/*.jar
-           overwrite: true
+      - name: Build the application and database images
+        run: docker compose build
 
-       - name: Copy Output
-         run: docker container cp group19-predevelopment-app-1:./app/reports ./
+      - name: Run both containers and use the app exit code
+        run: >-
+          docker compose up --no-build
+          --abort-on-container-exit
+          --exit-code-from app
 
-       - name: Deploy
-         uses: JamesIves/github-pages-deploy-action@v4.2.5
-         with:
-           branch: reports
-           folder: reports
-           token: ${{ secrets.DEPLOY_PAT || secrets.GITHUB_TOKEN }}
+      - name: Copy the generated reports from the app container
+        run: |
+          mkdir -p generated-reports
+          docker compose cp app:/app/reports/. generated-reports/
+
+      - name: Check that all 32 reports were generated
+        run: |
+          report_count="$(find generated-reports -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')"
+          if [ "$report_count" -ne 32 ]; then
+            echo "Expected 32 reports, but found $report_count."
+            exit 1
+          fi
+          echo "All 32 reports were generated."
+
+      - name: Save pull request reports for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-reports-pr-${{ github.event.pull_request.number }}
+          path: generated-reports/
+          retention-days: 7
+
+      - name: Stop the pull request containers
+        if: always()
+        run: docker compose down --volumes --remove-orphans
+
+  # Stage 3B: Master builds one immutable multi-platform tag for each image.
+  build-candidate-images:
+    name: Build ${{ matrix.component }} image
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs:
+      - unit-tests
+      - integration-tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - component: application
+            image: ghcr.io/osamorju/group19-predevelopment-app
+            context: .
+            dockerfile: ./Dockerfile
+          - component: database
+            image: ghcr.io/osamorju/group19-predevelopment-database
+            context: ./database
+            dockerfile: ./database/Dockerfile
+
+    steps:
+      - name: Download the source code
+        uses: actions/checkout@v4
+
+      - name: Enable ARM builds
+        uses: docker/setup-qemu-action@v3
+
+      - name: Enable Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Sign in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create image tags and labels
+        id: metadata
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ matrix.image }}
+          tags: type=raw,value=${{ env.CANDIDATE_TAG }}
+
+      - name: Compile the source and publish the candidate image
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+          cache-from: type=gha,scope=${{ matrix.component }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.component }}
+
+  # Stage 4: Pull the immutable images and prove they generate every report.
+  published-container-test:
+    name: Published container test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs:
+      - build-candidate-images
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    env:
+      IMAGE_TAG: sha-${{ github.sha }}
+
+    steps:
+      - name: Download the source code
+        uses: actions/checkout@v4
+
+      - name: Sign in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull the candidate images
+        run: docker compose pull
+
+      - name: Run the published application and database images
+        run: >-
+          docker compose up --no-build
+          --abort-on-container-exit
+          --exit-code-from app
+
+      - name: Copy the generated reports from the app container
+        run: |
+          mkdir -p generated-reports
+          docker compose cp app:/app/reports/. generated-reports/
+
+      - name: Check that all 32 reports were generated
+        run: |
+          report_count="$(find generated-reports -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')"
+          if [ "$report_count" -ne 32 ]; then
+            echo "Expected 32 reports, but found $report_count."
+            exit 1
+          fi
+          echo "All 32 reports were generated from the published images."
+
+      - name: Save the generated reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-reports
+          path: generated-reports/
+          retention-days: 7
+
+      - name: Stop the published containers
+        if: always()
+        run: docker compose down --volumes --remove-orphans
+
+  # Stage 5: Move the tested immutable images to the public latest tag.
+  promote-latest:
+    name: Promote images to latest
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs:
+      - published-container-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Enable Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Sign in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Point the application latest tag to the tested image
+        run: >-
+          docker buildx imagetools create
+          --tag "$APP_IMAGE:latest"
+          "$APP_IMAGE:$CANDIDATE_TAG"
+
+      - name: Point the database latest tag to the tested image
+        run: >-
+          docker buildx imagetools create
+          --tag "$DATABASE_IMAGE:latest"
+          "$DATABASE_IMAGE:$CANDIDATE_TAG"
+
+      - name: Confirm both latest tags exist
+        run: |
+          docker buildx imagetools inspect "$APP_IMAGE:latest"
+          docker buildx imagetools inspect "$DATABASE_IMAGE:latest"
+
+  # Stage 6: Keep the existing JAR release and publish the tested reports.
+  release-and-publish-reports:
+    name: Release JAR and publish reports
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs:
+      - promote-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download the source code
+        uses: actions/checkout@v4
+
+      - name: Install Java 24
+        uses: actions/setup-java@v4
+        with:
+          java-version: "24"
+          distribution: temurin
+          cache: maven
+
+      - name: Build the release JAR
+        run: mvn --batch-mode --no-transfer-progress package -DskipTests
+
+      - name: Download the tested reports
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-reports
+          path: reports
+
+      - name: Publish the JAR in the latest GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Move the reusable latest tag to the commit that passed every stage.
+          git tag --force latest "$GITHUB_SHA"
+          git push origin refs/tags/latest --force
+
+          # Update the existing release, or create it on the first successful run.
+          if gh release view latest >/dev/null 2>&1; then
+            gh release upload latest ./target/*.jar --clobber
+            gh release edit latest --title "Latest" --latest
+          else
+            gh release create latest ./target/*.jar \
+              --title "Latest" \
+              --notes "Automated release from the tested master branch." \
+              --verify-tag \
+              --latest
+          fi
+
+      - name: Publish the reports branch
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: reports
+          folder: reports
+          token: ${{ secrets.DEPLOY_PAT || secrets.GITHUB_TOKEN }}

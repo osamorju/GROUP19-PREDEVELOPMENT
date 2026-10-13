@@ -1,0 +1,4 @@
+*
+!Dockerfile
+!db/
+!db/world.sql

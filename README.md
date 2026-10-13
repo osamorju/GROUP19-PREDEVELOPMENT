@@ -7,11 +7,10 @@ It serves as a collaborative platform where all team members contribute to the *
 
 ## Status Badges
 
-![Master Workflow](https://img.shields.io/github/actions/workflow/status/Drewid101/Group19-DevOps/main.yml?branch=master&label=Master%20Build&style=flat-square)
-[![LICENSE](https://img.shields.io/github/license/Drewid101/Group19-DevOps.svg?style=flat-square&label=License)](https://github.com/Drewid101/Group19-DevOps/blob/master/LICENSE)
-![Develop Workflow](https://img.shields.io/github/actions/workflow/status/Drewid101/Group19-DevOps/main.yml?branch=develop&style=flat-square&label=Develop%20Build)
-[![Releases](https://img.shields.io/github/release/Drewid101/Group19-DevOps/all.svg?style=flat-square&label=Release)](https://github.com/Drewid101/Group19-DevOps/releases)
-[![codecov](https://codecov.io/gh/Drewid101/Group19-DevOps/graph/badge.svg)](https://codecov.io/gh/Drewid101/Group19-DevOps)
+![Master Workflow](https://img.shields.io/github/actions/workflow/status/osamorju/GROUP19-PREDEVELOPMENT/main.yml?branch=master&label=Master%20Build&style=flat-square)
+[![LICENSE](https://img.shields.io/github/license/osamorju/GROUP19-PREDEVELOPMENT.svg?style=flat-square&label=License)](https://github.com/osamorju/GROUP19-PREDEVELOPMENT/blob/master/LICENSE)
+[![Releases](https://img.shields.io/github/release/osamorju/GROUP19-PREDEVELOPMENT/all.svg?style=flat-square&label=Release)](https://github.com/osamorju/GROUP19-PREDEVELOPMENT/releases)
+[![codecov](https://codecov.io/gh/osamorju/GROUP19-PREDEVELOPMENT/graph/badge.svg)](https://codecov.io/gh/osamorju/GROUP19-PREDEVELOPMENT)
 
 ---
 ## Overview
@@ -33,57 +32,69 @@ The purpose of this system is to:
 
 ## Requirements
 
-Before running the project, make sure the following are installed and configured:
+To run the published images, install Docker with Docker Compose.
 
-**JDK 24** – Ensure JDK 24 is installed and set as default
-**Maven 3.9+** – For build automation and dependency management
-**MySQL Database** – Import the `world.sql` dataset before running the application
-**Git / GitHub** – For version control and collaboration
+To develop the Java source directly, also install:
+
+- JDK 24
+- Maven 3.9 or later
+- Git
+
+MySQL does not need to be installed. The database container loads
+`database/db/world.sql` automatically.
 
 ---
 
-## Build and Run
-To build and run the project locally, follow these steps:
+## Build the Images from Source
 
-1. **Clean the project**:
+Create the local environment file, build both images, and run them:
 
-    ```bash
-    mvn clean
-    ```
+```bash
+docker compose build
+docker compose up --no-build --abort-on-container-exit --exit-code-from app
+docker compose cp app:/app/reports/. reports/
+docker compose down --volumes
+```
 
-2. **Validate the project**:
+This school project uses `root` as the MySQL password to keep the coursework
+setup simple. A production system should use a limited database user, a strong
+unique password, and Docker secrets or a managed secret service.
 
-   ```bash
-   mvn validate
-   ```
+The application image compiles the Java source with Maven inside its build
+stage. The final image contains the Java runtime and the compiled JAR, but it
+does not contain Maven or the source files.
 
-3. **Compile the project**:
+## Run the Published Images
 
-   ```bash
-   mvn compile
-   ```
+The GitHub Actions workflow publishes these images:
 
-4. **Package the project**:
+- `ghcr.io/osamorju/group19-predevelopment-app:latest`
+- `ghcr.io/osamorju/group19-predevelopment-database:latest`
 
-   ```bash
-   mvn package
-   ```
+Generate the reports without building the source:
 
-5. **Run the project using Docker Compose**:
-   Ensure you have a `docker-compose.yml` file in your project directory, then run:
+```bash
+docker compose pull
+docker compose up --no-build --abort-on-container-exit --exit-code-from app
+docker compose cp app:/app/reports/. reports/
+docker compose down --volumes
+```
 
-   ```bash
-   docker-compose up --build
-   ```
+The pipeline also publishes immutable `sha-<commit>` tags. New GHCR packages
+are private by default, so the repository owner must change both package
+visibility settings to **Public** after the first successful publication.
 
-This will build the Docker image and start the application as defined in the `docker-compose.yml` file.
+## CI/CD Pipeline
 
-6. **After packaging, run the application with:**:
+The workflow:
 
-    ```bash
-    java -cp target/gp19CourseWork.jar com.napier.gp19.App
-    ```
-   After run local App.java will connect the database of Docker-Compose and  Markdown Report Files will be generated in the project root directory.
+1. Runs unit tests.
+2. Starts MySQL and runs integration tests.
+3. Builds application and database images for AMD64 and ARM64.
+4. Runs the published immutable images together.
+5. Checks that all 32 reports were generated.
+6. Moves the tested images to the `latest` tag.
+7. Publishes the JAR release and the reports branch.
 ---
 
 ## Kanban Board
@@ -107,7 +118,7 @@ You can also view the following key documents:
 
 ## Contribution Guidelines
 
-At this stage, the repository is intended to be maintained by the project owner **Jude Osamor ** and **Drewid101** only until more collaborators are invited through GitHub repository settings.
+At this stage, the repository is intended to be maintained by the project owner **Jude Osamor** and **Drewid101** only until more collaborators are invited through GitHub repository settings.
 
 We welcome contributions from team members.
 Please ensure:
