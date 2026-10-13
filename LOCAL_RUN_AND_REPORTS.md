@@ -113,15 +113,16 @@ docker compose down --volumes
 
 The workflow on the `master` branch performs these stages:
 
-1. Run unit tests.
-2. Run integration tests with the database container.
-3. Compile the source and build multi-platform application and database images.
-4. Publish immutable `sha-<commit>` image tags.
-5. Pull those tags and generate all 32 reports.
-6. Point `latest` to the tested images.
-7. Publish the JAR release and update the `reports` branch.
+1. Run unit and integration tests while both container images build.
+2. Build AMD64 and ARM64 application and database images.
+3. Publish immutable `sha-<commit>` image tags.
+4. Pull those tags and generate all 32 reports.
+5. Point `latest` to the tested images.
+6. Release the JAR copied from the tested app image.
+7. Update the `reports` branch with the tested reports.
 
 Pull requests build and test the two images but do not publish them.
+Documentation-only changes do not start the full container pipeline.
 
 ## Current Published Output
 

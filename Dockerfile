@@ -1,5 +1,5 @@
 # Build stage: compile the Java source and create the application JAR.
-FROM maven:3.9-eclipse-temurin-24 AS build
+FROM --platform=$BUILDPLATFORM maven:3.9-eclipse-temurin-24 AS build
 
 WORKDIR /build
 
@@ -7,8 +7,9 @@ WORKDIR /build
 COPY pom.xml .
 RUN mvn --batch-mode --no-transfer-progress dependency:go-offline
 
-COPY src ./src
-RUN mvn --batch-mode --no-transfer-progress clean package -DskipTests
+# Tests run before the image build, so this stage only needs production source.
+COPY src/main ./src/main
+RUN mvn --batch-mode --no-transfer-progress package -Dmaven.test.skip=true
 
 # Runtime stage: keep only Java and the compiled application JAR.
 FROM eclipse-temurin:24-jre AS runtime

@@ -4,9 +4,19 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - "**/*.md"
+      - "reports/**"
+      - "**/*.drawio"
+      - ".github/ISSUE_TEMPLATE/**"
   pull_request:
     branches:
       - master
+    paths-ignore:
+      - "**/*.md"
+      - "reports/**"
+      - "**/*.drawio"
+      - ".github/ISSUE_TEMPLATE/**"
   workflow_dispatch:
 
 # Stop an older run when a newer commit starts on the same branch.
@@ -67,11 +77,8 @@ jobs:
           distribution: temurin
           cache: maven
 
-      - name: Build the database image
-        run: docker compose build db
-
-      - name: Start the database and wait until it is ready
-        run: docker compose up --detach --no-build --wait db
+      - name: Build and start the database
+        run: docker compose up --detach --build --wait db
 
       - name: Run the integration tests
         env:
@@ -119,13 +126,10 @@ jobs:
           --abort-on-container-exit
           --exit-code-from app
 
-      - name: Copy the generated reports from the app container
+      - name: Copy and verify all 32 reports
         run: |
           mkdir -p generated-reports
           docker compose cp app:/app/reports/. generated-reports/
-
-      - name: Check that all 32 reports were generated
-        run: |
           report_count="$(find generated-reports -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')"
           if [ "$report_count" -ne 32 ]; then
             echo "Expected 32 reports, but found $report_count."
@@ -133,30 +137,19 @@ jobs:
           fi
           echo "All 32 reports were generated."
 
-      - name: Save pull request reports for review
-        uses: actions/upload-artifact@v7
-        with:
-          name: generated-reports-pr-${{ github.event.pull_request.number }}
-          path: generated-reports/
-          retention-days: 7
-
       - name: Stop the pull request containers
         if: always()
         run: docker compose down --volumes --remove-orphans
 
-  # Stage 3B: Master builds one immutable multi-platform tag for each image.
+  # Stage 3B: Build both images while the tests run in parallel.
   build-candidate-images:
     name: Build ${{ matrix.component }} image
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-    needs:
-      - unit-tests
-      - integration-tests
     runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
     strategy:
-      fail-fast: false
       matrix:
         include:
           - component: application
@@ -172,7 +165,8 @@ jobs:
       - name: Download the source code
         uses: actions/checkout@v7
 
-      - name: Enable ARM builds
+      - name: Enable ARM commands for the application image
+        if: matrix.component == 'application'
         uses: docker/setup-qemu-action@v4
 
       - name: Enable Docker Buildx
@@ -185,13 +179,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create image tags and labels
-        id: metadata
-        uses: docker/metadata-action@v6
-        with:
-          images: ${{ matrix.image }}
-          tags: type=raw,value=${{ env.CANDIDATE_TAG }}
-
       - name: Compile the source and publish the candidate image
         uses: docker/build-push-action@v7
         with:
@@ -199,21 +186,22 @@ jobs:
           file: ${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ steps.metadata.outputs.tags }}
-          labels: ${{ steps.metadata.outputs.labels }}
+          tags: ${{ matrix.image }}:${{ env.CANDIDATE_TAG }}
           cache-from: type=gha,scope=${{ matrix.component }}
           cache-to: type=gha,mode=max,scope=${{ matrix.component }}
 
-  # Stage 4: Pull the immutable images and prove they generate every report.
+  # Stage 4: Test the immutable images, then move them to the latest tag.
   published-container-test:
     name: Published container test
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
+      - unit-tests
+      - integration-tests
       - build-candidate-images
     runs-on: ubuntu-26.04
     permissions:
       contents: read
-      packages: read
+      packages: write
     env:
       IMAGE_TAG: sha-${{ github.sha }}
 
@@ -237,52 +225,25 @@ jobs:
           --abort-on-container-exit
           --exit-code-from app
 
-      - name: Copy the generated reports from the app container
+      - name: Collect and verify the tested output
         run: |
-          mkdir -p generated-reports
-          docker compose cp app:/app/reports/. generated-reports/
-
-      - name: Check that all 32 reports were generated
-        run: |
-          report_count="$(find generated-reports -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')"
+          mkdir -p tested-output/reports
+          docker compose cp app:/app/reports/. tested-output/reports/
+          docker compose cp app:/app/app.jar tested-output/gp19CourseWork.jar
+          report_count="$(find tested-output/reports -maxdepth 1 -type f -name '*.md' | wc -l | tr -d ' ')"
           if [ "$report_count" -ne 32 ]; then
             echo "Expected 32 reports, but found $report_count."
             exit 1
           fi
+          test -s tested-output/gp19CourseWork.jar
           echo "All 32 reports were generated from the published images."
 
-      - name: Save the generated reports
+      - name: Save the tested JAR and reports
         uses: actions/upload-artifact@v7
         with:
-          name: generated-reports
-          path: generated-reports/
+          name: tested-output
+          path: tested-output/
           retention-days: 7
-
-      - name: Stop the published containers
-        if: always()
-        run: docker compose down --volumes --remove-orphans
-
-  # Stage 5: Move the tested immutable images to the public latest tag.
-  promote-latest:
-    name: Promote images to latest
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-    needs:
-      - published-container-test
-    runs-on: ubuntu-26.04
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      - name: Enable Docker Buildx
-        uses: docker/setup-buildx-action@v4
-
-      - name: Sign in to GitHub Container Registry
-        uses: docker/login-action@v4
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Point the application latest tag to the tested image
         run: >-
@@ -301,12 +262,16 @@ jobs:
           docker buildx imagetools inspect "$APP_IMAGE:latest"
           docker buildx imagetools inspect "$DATABASE_IMAGE:latest"
 
-  # Stage 6: Keep the existing JAR release and publish the tested reports.
+      - name: Stop the published containers
+        if: always()
+        run: docker compose down --volumes --remove-orphans
+
+  # Stage 5: Release the exact tested JAR and publish the tested reports.
   release-and-publish-reports:
     name: Release JAR and publish reports
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
-      - promote-latest
+      - published-container-test
     runs-on: ubuntu-26.04
     permissions:
       contents: write
@@ -315,21 +280,11 @@ jobs:
       - name: Download the source code
         uses: actions/checkout@v7
 
-      - name: Install Java 24
-        uses: actions/setup-java@v6
-        with:
-          java-version: "24"
-          distribution: temurin
-          cache: maven
-
-      - name: Build the release JAR
-        run: mvn --batch-mode --no-transfer-progress package -DskipTests
-
-      - name: Download the tested reports
+      - name: Download the tested JAR and reports
         uses: actions/download-artifact@v8
         with:
-          name: generated-reports
-          path: reports
+          name: tested-output
+          path: tested-output
 
       - name: Publish the JAR in the latest GitHub release
         env:
@@ -341,10 +296,10 @@ jobs:
 
           # Update the existing release, or create it on the first successful run.
           if gh release view latest >/dev/null 2>&1; then
-            gh release upload latest ./target/*.jar --clobber
+            gh release upload latest tested-output/gp19CourseWork.jar --clobber
             gh release edit latest --title "Latest" --latest
           else
-            gh release create latest ./target/*.jar \
+            gh release create latest tested-output/gp19CourseWork.jar \
               --title "Latest" \
               --notes "Automated release from the tested master branch." \
               --verify-tag \
@@ -355,5 +310,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: reports
-          folder: reports
+          folder: tested-output/reports
           token: ${{ secrets.DEPLOY_PAT || secrets.GITHUB_TOKEN }}

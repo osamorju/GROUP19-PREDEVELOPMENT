@@ -88,13 +88,15 @@ visibility settings to **Public** after the first successful publication.
 
 The workflow:
 
-1. Runs unit tests.
-2. Starts MySQL and runs integration tests.
-3. Builds application and database images for AMD64 and ARM64.
-4. Runs the published immutable images together.
+1. Runs unit and integration tests while both container images build.
+2. Builds application and database images for AMD64 and ARM64.
+3. Publishes immutable `sha-<commit>` image tags.
+4. Runs those immutable images together.
 5. Checks that all 32 reports were generated.
 6. Moves the tested images to the `latest` tag.
-7. Publishes the JAR release and the reports branch.
+7. Releases the exact tested JAR and publishes the reports branch.
+
+Documentation-only changes do not start the full container pipeline.
 ---
 
 ## Kanban Board
