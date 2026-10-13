@@ -1,5 +1,7 @@
 # Report 4: Top 10 Countries in the World
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | Code | Country | Continent | Region | Population | Capital |
 | --- | --- | --- | --- | ---: | --- |
 | CHN | China | Asia | Eastern Asia | 1,277,558,000 | Peking |

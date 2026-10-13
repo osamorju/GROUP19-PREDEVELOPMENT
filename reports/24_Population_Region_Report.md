@@ -1,5 +1,7 @@
 # Report 24: Population by Region
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | Region | Total Pop | City Pop | Non-City Pop | City % | Non-City % |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Eastern Asia | 1,507,328,000 | 317,476,534 | 1,189,851,466 | 21.06% | 78.94% |

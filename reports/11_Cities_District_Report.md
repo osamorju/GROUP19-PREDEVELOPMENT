@@ -1,5 +1,7 @@
 # Report 11: Cities in Rio de Janeiro
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | City | Country | District | Population |
 | --- | --- | --- | ---: |
 | Rio de Janeiro | Brazil | Rio de Janeiro | 5,598,953 |

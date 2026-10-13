@@ -1,5 +1,7 @@
 # Report 18: Capital Cities in Asia
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | Capital | Country | Population |
 | --- | --- | ---: |
 | Seoul | South Korea | 9,981,619 |

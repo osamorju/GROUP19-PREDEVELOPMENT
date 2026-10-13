@@ -1,5 +1,7 @@
 # Report 15: Top 10 Cities in Myanmar
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | City | Country | District | Population |
 | --- | --- | --- | ---: |
 | Rangoon (Yangon) | Myanmar | Rangoon [Yangon] | 3,361,700 |

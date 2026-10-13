@@ -1,5 +1,7 @@
 # Report 13: Top 10 Cities in Asia
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | City | Country | District | Population |
 | --- | --- | --- | ---: |
 | Mumbai (Bombay) | India | Maharashtra | 10,500,000 |

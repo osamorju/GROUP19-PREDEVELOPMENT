@@ -1,5 +1,7 @@
 # Report 9: Cities in Eastern Asia
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | City | Country | District | Population |
 | --- | --- | --- | ---: |
 | Seoul | South Korea | Seoul | 9,981,619 |

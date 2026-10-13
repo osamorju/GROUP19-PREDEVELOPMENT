@@ -1,5 +1,7 @@
 # Report 25: Population by Country
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | Country | Total Pop | City Pop | Non-City Pop | City % | Non-City % |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | China | 1,277,558,000 | 175,953,614 | 1,101,604,386 | 13.77% | 86.23% |

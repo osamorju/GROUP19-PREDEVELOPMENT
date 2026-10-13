@@ -1,5 +1,7 @@
 # Report 3: Countries in Middle East
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | Code | Country | Continent | Region | Population | Capital |
 | --- | --- | --- | --- | ---: | --- |
 | TUR | Turkey | Asia | Middle East | 66,591,000 | Ankara |

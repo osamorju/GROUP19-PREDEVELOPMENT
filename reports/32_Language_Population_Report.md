@@ -1,5 +1,7 @@
 # Report 32: Language Population Report
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | Language | Speakers | % of World Population |
 | --- | ---: | ---: |
 | Chinese | 1,191,843,539 | 19.61% |

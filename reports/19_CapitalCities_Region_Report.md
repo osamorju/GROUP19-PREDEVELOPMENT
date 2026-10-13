@@ -1,5 +1,7 @@
 # Report 19: Capital Cities in Middle East
 
+> Generated locally from the MySQL world database on 2026-10-13.
+
 | Capital | Country | Population |
 | --- | --- | ---: |
 | Baghdad | Iraq | 4,336,000 |
