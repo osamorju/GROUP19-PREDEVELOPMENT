@@ -27,7 +27,7 @@ jobs:
   # Stage 1: Run the fast Java tests without starting a database.
   unit-tests:
     name: Unit tests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Download the source code
@@ -54,7 +54,7 @@ jobs:
   # Stage 2: Start the database and test the Java code against real data.
   integration-tests:
     name: Integration tests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Download the source code
@@ -102,7 +102,7 @@ jobs:
     needs:
       - unit-tests
       - integration-tests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     env:
       IMAGE_TAG: pr-${{ github.event.pull_request.number }}-${{ github.sha }}
 
@@ -151,7 +151,7 @@ jobs:
     needs:
       - unit-tests
       - integration-tests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
@@ -210,7 +210,7 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
       - build-candidate-images
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: read
@@ -268,7 +268,7 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
       - published-container-test
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
@@ -307,7 +307,7 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
     needs:
       - promote-latest
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: write
 
