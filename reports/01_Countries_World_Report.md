@@ -8,13 +8,13 @@
 | IND | India | Asia | Southern and Central Asia | 1,013,662,000 | New Delhi |
 | USA | United States | North America | North America | 278,357,000 | Washington |
 | IDN | Indonesia | Asia | Southeast Asia | 212,107,000 | Jakarta |
-| BRA | Brazil | South America | South America | 170,115,000 | Brasília |
+| BRA | Brazil | South America | South America | 170,115,000 | Bras??lia |
 | PAK | Pakistan | Asia | Southern and Central Asia | 156,483,000 | Islamabad |
 | RUS | Russian Federation | Europe | Eastern Europe | 146,934,000 | Moscow |
 | BGD | Bangladesh | Asia | Southern and Central Asia | 129,155,000 | Dhaka |
 | JPN | Japan | Asia | Eastern Asia | 126,714,000 | Tokyo |
 | NGA | Nigeria | Africa | Western Africa | 111,506,000 | Abuja |
-| MEX | Mexico | North America | Central America | 98,881,000 | Ciudad de México |
+| MEX | Mexico | North America | Central America | 98,881,000 | Ciudad de M??xico |
 | DEU | Germany | Europe | Western Europe | 82,164,700 | Berlin |
 | VNM | Vietnam | Asia | Southeast Asia | 79,832,000 | Hanoi |
 | PHL | Philippines | Asia | Southeast Asia | 75,967,000 | Manila |
@@ -30,7 +30,7 @@
 | UKR | Ukraine | Europe | Eastern Europe | 50,456,000 | Kyiv |
 | KOR | South Korea | Asia | Eastern Asia | 46,844,000 | Seoul |
 | MMR | Myanmar | Asia | Southeast Asia | 45,611,000 | Rangoon (Yangon) |
-| COL | Colombia | South America | South America | 42,321,000 | Santafé de Bogotá |
+| COL | Colombia | South America | South America | 42,321,000 | Santaf?? de Bogot?? |
 | ZAF | South Africa | Africa | Southern Africa | 40,377,000 | Pretoria |
 | ESP | Spain | Europe | Southern Europe | 39,441,700 | Madrid |
 | POL | Poland | Europe | Eastern Europe | 38,653,600 | Warszawa |
@@ -63,8 +63,8 @@
 | MDG | Madagascar | Africa | Eastern Africa | 15,942,000 | Antananarivo |
 | NLD | Netherlands | Europe | Western Europe | 15,864,000 | Amsterdam |
 | CHL | Chile | South America | South America | 15,211,000 | Santiago de Chile |
-| CMR | Cameroon | Africa | Central Africa | 15,085,000 | Yaoundé |
-| CIV | Côte d’Ivoire | Africa | Western Africa | 14,786,000 | Yamoussoukro |
+| CMR | Cameroon | Africa | Central Africa | 15,085,000 | Yaound?? |
+| CIV | C??te d???Ivoire | Africa | Western Africa | 14,786,000 | Yamoussoukro |
 | AGO | Angola | Africa | Central Africa | 12,878,000 | Luanda |
 | ECU | Ecuador | South America | South America | 12,646,000 | Quito |
 | BFA | Burkina Faso | Africa | Western Africa | 11,937,000 | Ouagadougou |
@@ -87,14 +87,14 @@
 | SEN | Senegal | Africa | Western Africa | 9,481,000 | Dakar |
 | ZMB | Zambia | Africa | Eastern Africa | 9,169,000 | Lusaka |
 | SWE | Sweden | Europe | Nordic Countries | 8,861,400 | Stockholm |
-| DOM | Dominican Republic | North America | Caribbean | 8,495,000 | Santo Domingo de Guzmán |
+| DOM | Dominican Republic | North America | Caribbean | 8,495,000 | Santo Domingo de Guzm??n |
 | BOL | Bolivia | South America | South America | 8,329,000 | La Paz |
 | HTI | Haiti | North America | Caribbean | 8,222,000 | Port-au-Prince |
 | BGR | Bulgaria | Europe | Eastern Europe | 8,190,900 | Sofija |
 | AUT | Austria | Europe | Western Europe | 8,091,800 | Wien |
-| AZE | Azerbaijan | Asia | Middle East | 7,734,000 | Bakı |
+| AZE | Azerbaijan | Asia | Middle East | 7,734,000 | Bak?? |
 | RWA | Rwanda | Africa | Eastern Africa | 7,733,000 | Kigali |
-| TCD | Chad | Africa | Central Africa | 7,651,000 | N´Djaména |
+| TCD | Chad | Africa | Central Africa | 7,651,000 | N??Djam??na |
 | GIN | Guinea | Africa | Western Africa | 7,430,000 | Conakry |
 | CHE | Switzerland | Europe | Western Europe | 7,160,400 | Bern |
 | HKG | Hong Kong | Asia | Eastern Asia | 6,782,000 | Victoria |
@@ -105,10 +105,10 @@
 | TJK | Tajikistan | Asia | Southern and Central Asia | 6,188,000 | Dushanbe |
 | BEN | Benin | Africa | Western Africa | 6,097,000 | Porto-Novo |
 | LBY | Libyan Arab Jamahiriya | Africa | Northern Africa | 5,605,000 | Tripoli |
-| PRY | Paraguay | South America | South America | 5,496,000 | Asunción |
+| PRY | Paraguay | South America | South America | 5,496,000 | Asunci??n |
 | LAO | Laos | Asia | Southeast Asia | 5,433,000 | Vientiane |
 | SVK | Slovakia | Europe | Eastern Europe | 5,398,700 | Bratislava |
-| DNK | Denmark | Europe | Nordic Countries | 5,330,000 | København |
+| DNK | Denmark | Europe | Nordic Countries | 5,330,000 | K??benhavn |
 | FIN | Finland | Europe | Nordic Countries | 5,171,300 | Helsinki [Helsingfors] |
 | JOR | Jordan | Asia | Middle East | 5,083,000 | Amman |
 | NIC | Nicaragua | North America | Central America | 5,074,000 | Managua |
@@ -116,12 +116,12 @@
 | SLE | Sierra Leone | Africa | Western Africa | 4,854,000 | Freetown |
 | PNG | Papua New Guinea | Oceania | Melanesia | 4,807,000 | Port Moresby |
 | KGZ | Kyrgyzstan | Asia | Southern and Central Asia | 4,699,000 | Bishkek |
-| TGO | Togo | Africa | Western Africa | 4,629,000 | Lomé |
+| TGO | Togo | Africa | Western Africa | 4,629,000 | Lom?? |
 | NOR | Norway | Europe | Nordic Countries | 4,478,500 | Oslo |
 | HRV | Croatia | Europe | Southern Europe | 4,473,000 | Zagreb |
 | TKM | Turkmenistan | Asia | Southern and Central Asia | 4,459,000 | Ashgabat |
 | MDA | Moldova | Europe | Eastern Europe | 4,380,000 | Chisinau |
-| CRI | Costa Rica | North America | Central America | 4,023,000 | San José |
+| CRI | Costa Rica | North America | Central America | 4,023,000 | San Jos?? |
 | BIH | Bosnia and Herzegovina | Europe | Southern Europe | 3,972,000 | Sarajevo |
 | PRI | Puerto Rico | North America | Caribbean | 3,869,000 | San Juan |
 | NZL | New Zealand | Oceania | Australia and New Zealand | 3,862,000 | Wellington |
@@ -137,7 +137,7 @@
 | LBR | Liberia | Africa | Western Africa | 3,154,000 | Monrovia |
 | PSE | Palestine | Asia | Middle East | 3,101,000 | Gaza |
 | COG | Congo | Africa | Central Africa | 2,943,000 | Brazzaville |
-| PAN | Panama | North America | Central America | 2,856,000 | Ciudad de Panamá |
+| PAN | Panama | North America | Central America | 2,856,000 | Ciudad de Panam?? |
 | MRT | Mauritania | Africa | Western Africa | 2,670,000 | Nouakchott |
 | MNG | Mongolia | Asia | Eastern Asia | 2,662,000 | Ulan Bator |
 | JAM | Jamaica | North America | Caribbean | 2,583,000 | Kingston |
@@ -162,7 +162,7 @@
 | GUY | Guyana | South America | South America | 861,000 | Georgetown |
 | FJI | Fiji Islands | Oceania | Melanesia | 817,000 | Suva |
 | CYP | Cyprus | Asia | Middle East | 754,700 | Nicosia |
-| REU | Réunion | Africa | Eastern Africa | 699,000 | Saint-Denis |
+| REU | R??union | Africa | Eastern Africa | 699,000 | Saint-Denis |
 | DJI | Djibouti | Africa | Eastern Africa | 638,000 | Djibouti |
 | BHR | Bahrain | Asia | Middle East | 617,000 | al-Manama |
 | QAT | Qatar | Asia | Middle East | 599,000 | Doha |
@@ -171,33 +171,33 @@
 | GLP | Guadeloupe | North America | Caribbean | 456,000 | Basse-Terre |
 | GNQ | Equatorial Guinea | Africa | Central Africa | 453,000 | Malabo |
 | SLB | Solomon Islands | Oceania | Melanesia | 444,000 | Honiara |
-| LUX | Luxembourg | Europe | Western Europe | 435,700 | Luxembourg [Luxemburg/Lëtzebuerg] |
+| LUX | Luxembourg | Europe | Western Europe | 435,700 | Luxembourg [Luxemburg/L??tzebuerg] |
 | CPV | Cape Verde | Africa | Western Africa | 428,000 | Praia |
 | SUR | Suriname | South America | South America | 417,000 | Paramaribo |
 | MTQ | Martinique | North America | Caribbean | 395,000 | Fort-de-France |
 | MLT | Malta | Europe | Southern Europe | 380,200 | Valletta |
 | BRN | Brunei | Asia | Southeast Asia | 328,000 | Bandar Seri Begawan |
 | BHS | Bahamas | North America | Caribbean | 307,000 | Nassau |
-| ESH | Western Sahara | Africa | Northern Africa | 293,000 | El-Aaiún |
+| ESH | Western Sahara | Africa | Northern Africa | 293,000 | El-Aai??n |
 | MDV | Maldives | Asia | Southern and Central Asia | 286,000 | Male |
-| ISL | Iceland | Europe | Nordic Countries | 279,000 | Reykjavík |
+| ISL | Iceland | Europe | Nordic Countries | 279,000 | Reykjav??k |
 | BRB | Barbados | North America | Caribbean | 270,000 | Bridgetown |
 | BLZ | Belize | North America | Central America | 241,000 | Belmopan |
 | PYF | French Polynesia | Oceania | Polynesia | 235,000 | Papeete |
 | ANT | Netherlands Antilles | North America | Caribbean | 217,000 | Willemstad |
-| NCL | New Caledonia | Oceania | Melanesia | 214,000 | Nouméa |
+| NCL | New Caledonia | Oceania | Melanesia | 214,000 | Noum??a |
 | VUT | Vanuatu | Oceania | Melanesia | 190,000 | Port-Vila |
 | GUF | French Guiana | South America | South America | 181,000 | Cayenne |
 | WSM | Samoa | Oceania | Polynesia | 180,000 | Apia |
-| GUM | Guam | Oceania | Micronesia | 168,000 | Agaña |
+| GUM | Guam | Oceania | Micronesia | 168,000 | Aga??a |
 | LCA | Saint Lucia | North America | Caribbean | 154,000 | Castries |
 | MYT | Mayotte | Africa | Eastern Africa | 149,000 | Mamoutzou |
-| STP | Sao Tome and Principe | Africa | Central Africa | 147,000 | São Tomé |
+| STP | Sao Tome and Principe | Africa | Central Africa | 147,000 | S??o Tom?? |
 | FSM | Micronesia, Federated States of | Oceania | Micronesia | 119,000 | Palikir |
 | VCT | Saint Vincent and the Grenadines | North America | Caribbean | 114,000 | Kingstown |
 | ABW | Aruba | North America | Caribbean | 103,000 | Oranjestad |
-| TON | Tonga | Oceania | Polynesia | 99,000 | Nuku´alofa |
-| GRD | Grenada | North America | Caribbean | 94,000 | Saint George´s |
+| TON | Tonga | Oceania | Polynesia | 99,000 | Nuku??alofa |
+| GRD | Grenada | North America | Caribbean | 94,000 | Saint George??s |
 | VIR | Virgin Islands, U.S. | North America | Caribbean | 93,000 | Charlotte Amalie |
 | KIR | Kiribati | Oceania | Micronesia | 83,000 | Bairiki |
 | AND | Andorra | Europe | Southern Europe | 78,000 | Andorra la Vella |
@@ -205,11 +205,11 @@
 | SYC | Seychelles | Africa | Eastern Africa | 77,000 | Victoria |
 | DMA | Dominica | North America | Caribbean | 71,000 | Roseau |
 | ASM | American Samoa | Oceania | Polynesia | 68,000 | Fagatogo |
-| ATG | Antigua and Barbuda | North America | Caribbean | 68,000 | Saint John´s |
+| ATG | Antigua and Barbuda | North America | Caribbean | 68,000 | Saint John??s |
 | BMU | Bermuda | North America | North America | 65,000 | Hamilton |
 | MHL | Marshall Islands | Oceania | Micronesia | 64,000 | Dalap-Uliga-Darrit |
 | GRL | Greenland | North America | North America | 56,000 | Nuuk |
-| FRO | Faroe Islands | Europe | Nordic Countries | 43,000 | Tórshavn |
+| FRO | Faroe Islands | Europe | Nordic Countries | 43,000 | T??rshavn |
 | CYM | Cayman Islands | North America | Caribbean | 38,000 | George Town |
 | KNA | Saint Kitts and Nevis | North America | Caribbean | 38,000 | Basseterre |
 | MCO | Monaco | Europe | Western Europe | 34,000 | Monaco-Ville |
@@ -233,7 +233,7 @@
 | NFK | Norfolk Island | Oceania | Australia and New Zealand | 2,000 | Kingston |
 | NIU | Niue | Oceania | Polynesia | 2,000 | Alofi |
 | TKL | Tokelau | Oceania | Polynesia | 2,000 | Fakaofo |
-| VAT | Holy See (Vatican City State) | Europe | Southern Europe | 1,000 | Città del Vaticano |
+| VAT | Holy See (Vatican City State) | Europe | Southern Europe | 1,000 | Citt?? del Vaticano |
 | CCK | Cocos (Keeling) Islands | Oceania | Australia and New Zealand | 600 | West Island |
 | PCN | Pitcairn | Oceania | Polynesia | 50 | Adamstown |
 | ATA | Antarctica | Antarctica | Antarctica | 0 | No Capital |

@@ -24,7 +24,7 @@
 | Harbin | China | Heilongjiang | 4,289,800 |
 | Shenyang | China | Liaoning | 4,265,200 |
 | Kanton [Guangzhou] | China | Guangdong | 4,256,300 |
-| Singapore | Singapore | – | 4,017,733 |
+| Singapore | Singapore | ??? | 4,017,733 |
 | Ho Chi Minh City | Vietnam | Ho Chi Minh City | 3,980,000 |
 | Chennai (Madras) | India | Tamil Nadu | 3,841,396 |
 | Pusan | South Korea | Pusan | 3,804,522 |
@@ -38,7 +38,7 @@
 | Ahmedabad | India | Gujarat | 2,876,710 |
 | Nanking [Nanjing] | China | Jiangsu | 2,870,300 |
 | Changchun | China | Jilin | 2,812,000 |
-| Xi´an | China | Shaanxi | 2,761,400 |
+| Xi??an | China | Shaanxi | 2,761,400 |
 | Dalian | China | Liaoning | 2,697,000 |
 | Surabaya | Indonesia | East Java | 2,663,820 |
 | Bangalore | India | Karnataka | 2,660,088 |
@@ -67,7 +67,7 @@
 | Kunming | China | Yunnan | 1,829,500 |
 | Changsha | China | Hunan | 1,809,800 |
 | Sapporo | Japan | Hokkaido | 1,790,886 |
-| Bakı | Azerbaijan | Bakı | 1,787,800 |
+| Bak?? | Azerbaijan | Bak?? | 1,787,800 |
 | Kabul | Afghanistan | Kabol | 1,780,000 |
 | Nanchang | China | Jiangxi | 1,691,600 |
 | Nagpur | India | Maharashtra | 1,624,752 |
@@ -91,7 +91,7 @@
 | Kwangju | South Korea | Kwangju | 1,368,341 |
 | Damascus | Syria | Damascus | 1,347,000 |
 | Victoria | Hong Kong | Hongkong | 1,312,637 |
-| Urumtši [Ürümqi] | China | Xinxiang | 1,310,100 |
+| Urumt??i [??r??mqi] | China | Xinxiang | 1,310,100 |
 | Fukuoka | Japan | Fukuoka | 1,308,379 |
 | Kuala Lumpur | Malaysia | Wilayah Persekutuan | 1,297,526 |
 | Esfahan | Iran | Esfahan | 1,266,072 |
@@ -205,7 +205,7 @@
 | Kathmandu | Nepal | Central | 591,835 |
 | Anyang | South Korea | Kyonggi | 591,106 |
 | Bishkek | Kyrgyzstan | Bishkek shaary | 589,400 |
-| Mersin (Içel) | Turkey | Içel | 587,212 |
+| Mersin (I??el) | Turkey | I??el | 587,212 |
 | Bareilly | India | Uttar Pradesh | 587,211 |
 | Sagamihara | Japan | Kanagawa | 586,300 |
 | Guwahati (Gauhati) | India | Assam | 584,342 |
@@ -271,7 +271,7 @@
 | Himeji | Japan | Hyogo | 475,167 |
 | Shizuoka | Japan | Shizuoka | 473,854 |
 | Xinxiang | China | Henan | 473,762 |
-| Las Piñas | Philippines | National Capital Reg | 472,780 |
+| Las Pi??as | Philippines | National Capital Reg | 472,780 |
 | Guntur | India | Andhra Pradesh | 471,051 |
 | Antipolo | Philippines | Southern Tagalog | 470,866 |
 | Eskisehir | Turkey | Eskisehir | 470,781 |
@@ -288,7 +288,7 @@
 | Ghaziabad | India | Uttar Pradesh | 454,156 |
 | Kawaguchi | Japan | Saitama | 452,155 |
 | Yantai | China | Shandong | 452,127 |
-| Parañaque | Philippines | National Capital Reg | 449,811 |
+| Para??aque | Philippines | National Capital Reg | 449,811 |
 | Bengbu | China | Anhui | 449,245 |
 | Warangal | India | Andhra Pradesh | 447,657 |
 | Makati | Philippines | National Capital Reg | 444,867 |
@@ -365,7 +365,7 @@
 | Zaozhuang | China | Shandong | 380,846 |
 | Arak | Iran | Markazi | 380,755 |
 | Sanchung | Taiwan | Taipei | 380,084 |
-| Dasmariñas | Philippines | Southern Tagalog | 379,520 |
+| Dasmari??as | Philippines | Southern Tagalog | 379,520 |
 | Muntinlupa | Philippines | National Capital Reg | 379,310 |
 | Bhiwandi | India | Maharashtra | 379,070 |
 | Yakeshi | China | Inner Mongolia | 377,869 |
@@ -406,7 +406,7 @@
 | Gaza | Palestine | Gaza | 353,632 |
 | Xianyang | China | Shaanxi | 352,125 |
 | Kwangmyong | South Korea | Kyonggi | 350,914 |
-| Tai´an | China | Shandong | 350,696 |
+| Tai??an | China | Shandong | 350,696 |
 | Chifeng | China | Inner Mongolia | 350,077 |
 | Shaoguan | China | Guangdong | 350,043 |
 | Tel Aviv-Jaffa | Israel | Tel Aviv | 348,100 |
@@ -456,7 +456,7 @@
 | Changzhi | China | Shanxi | 317,144 |
 | Nellore | India | Andhra Pradesh | 316,606 |
 | Taoyuan | Taiwan | Taoyuan | 316,438 |
-| San José del Monte | Philippines | Central Luzon | 315,807 |
+| San Jos?? del Monte | Philippines | Central Luzon | 315,807 |
 | Tengzhou | China | Shandong | 315,083 |
 | Akita | Japan | Akita | 314,440 |
 | Chaozhou | China | Guangdong | 313,469 |
@@ -464,7 +464,7 @@
 | Yangzhou | China | Jiangsu | 312,892 |
 | Kumi | South Korea | Kyongsangbuk | 311,431 |
 | Astana | Kazakstan | Astana | 311,200 |
-| Öskemen | Kazakstan | East Kazakstan | 311,000 |
+| ??skemen | Kazakstan | East Kazakstan | 311,000 |
 | al-Najaf | Iraq | al-Najaf | 309,010 |
 | Dongwan | China | Guangdong | 308,669 |
 | Udaipur | India | Rajasthan | 308,571 |
@@ -472,7 +472,7 @@
 | New Bombay | India | Maharashtra | 307,297 |
 | Mataram | Indonesia | Nusa Tenggara Barat | 306,600 |
 | Bacoor | Philippines | Southern Tagalog | 305,699 |
-| Ma´anshan | China | Anhui | 305,421 |
+| Ma??anshan | China | Anhui | 305,421 |
 | Bhatpara | India | West Bengali | 304,952 |
 | Gulbarga | India | Karnataka | 304,099 |
 | Miyazaki | Japan | Miyazaki | 303,784 |
@@ -488,7 +488,7 @@
 | Wonsan | North Korea | Kangwon | 300,148 |
 | Naha | Japan | Okinawa | 299,851 |
 | Shihezi | China | Xinxiang | 299,676 |
-| Gəncə | Azerbaijan | Gəncə | 299,300 |
+| G??nc?? | Azerbaijan | G??nc?? | 299,300 |
 | Hodeida | Yemen | Hodeida | 298,500 |
 | Yancheng | China | Jiangsu | 296,831 |
 | Karbala | Iraq | Karbala | 296,705 |
@@ -510,9 +510,9 @@
 | Bogor | Indonesia | West Java | 285,114 |
 | Iligan | Philippines | Central Mindanao | 285,061 |
 | Maebashi | Japan | Gumma | 284,473 |
-| Sumqayıt | Azerbaijan | Sumqayıt | 283,000 |
+| Sumqay??t | Azerbaijan | Sumqay??t | 283,000 |
 | Kasugai | Japan | Aichi | 282,348 |
-| Biên Hoa | Vietnam | Dong Nai | 282,095 |
+| Bi??n Hoa | Vietnam | Dong Nai | 282,095 |
 | Otsu | Japan | Shiga | 282,070 |
 | Dongying | China | Shandong | 281,728 |
 | Shashi | China | Hubei | 281,352 |
@@ -585,7 +585,7 @@
 | Denizli | Turkey | Denizli | 253,848 |
 | Kediri | Indonesia | East Java | 253,760 |
 | Bhagalpur | India | Bihar | 253,225 |
-| Aqtöbe | Kazakstan | Aqtöbe | 253,100 |
+| Aqt??be | Kazakstan | Aqt??be | 253,100 |
 | Baguio | Philippines | CAR | 252,386 |
 | Wafangdian | China | Liaoning | 251,733 |
 | Anqing | China | Anhui | 250,718 |
@@ -647,7 +647,7 @@
 | Navotas | Philippines | National Capital Reg | 230,403 |
 | Haeju | North Korea | Hwanghae N | 229,172 |
 | Namyangju | South Korea | Kyonggi | 229,060 |
-| Elâzig | Turkey | Elâzig | 228,815 |
+| El??zig | Turkey | El??zig | 228,815 |
 | Rahim Yar Khan | Pakistan | Punjab | 228,479 |
 | Kuala Terengganu | Malaysia | Terengganu | 228,119 |
 | Tongling | China | Anhui | 228,017 |
@@ -705,7 +705,7 @@
 | Hebi | China | Henan | 212,976 |
 | Eluru | India | Andhra Pradesh | 212,866 |
 | Atsugi | Japan | Kanagawa | 212,407 |
-| Gjumri | Armenia | Širak | 211,700 |
+| Gjumri | Armenia | ??irak | 211,700 |
 | Jiaxing | China | Zhejiang | 211,526 |
 | Numazu | Japan | Shizuoka | 211,382 |
 | Sultanbeyli | Turkey | Istanbul | 211,068 |
@@ -733,7 +733,7 @@
 | Cimanggis | Indonesia | West Java | 205,100 |
 | Alwar | India | Rajasthan | 205,086 |
 | Baiyin | China | Gansu | 204,970 |
-| Bei´an | China | Heilongjiang | 204,899 |
+| Bei??an | China | Heilongjiang | 204,899 |
 | Batman | Turkey | Batman | 203,793 |
 | Petropavl | Kazakstan | North Kazakstan | 203,500 |
 | Pondicherry | India | Pondicherry | 203,065 |
@@ -747,7 +747,7 @@
 | Chofu | Japan | Tokyo-to | 201,585 |
 | Kashan | Iran | Esfahan | 201,372 |
 | Bihar Sharif | India | Bihar | 201,323 |
-| Biñan | Philippines | Southern Tagalog | 201,186 |
+| Bi??an | Philippines | Southern Tagalog | 201,186 |
 | Okara | Pakistan | Punjab | 200,901 |
 | Yixing | China | Jiangsu | 200,824 |
 | Odawara | Japan | Kanagawa | 200,171 |
@@ -796,11 +796,11 @@
 | Sakarya (Adapazari) | Turkey | Sakarya | 190,641 |
 | Parbhani | India | Maharashtra | 190,255 |
 | Ezhou | China | Hubei | 190,123 |
-| Kükon | Uzbekistan | Fargona | 190,100 |
+| K??kon | Uzbekistan | Fargona | 190,100 |
 | Nagar Coil | India | Tamil Nadu | 190,084 |
 | Moratuwa | Sri Lanka | Western | 190,000 |
 | Heze | China | Shandong | 189,293 |
-| Chärjew | Turkmenistan | Lebap | 189,200 |
+| Ch??rjew | Turkmenistan | Lebap | 189,200 |
 | Uji | Japan | Kyoto | 188,735 |
 | Mymensingh | Bangladesh | Dhaka | 188,713 |
 | Gorgan | Iran | Golestan | 188,710 |
@@ -968,7 +968,7 @@
 | Legazpi | Philippines | Bicol | 157,010 |
 | Wanxian | China | Sichuan | 156,823 |
 | Satna | India | Madhya Pradesh | 156,630 |
-| Rui´an | China | Zhejiang | 156,468 |
+| Rui??an | China | Zhejiang | 156,468 |
 | Zhoushan | China | Zhejiang | 156,317 |
 | Liangcheng | China | Shandong | 156,307 |
 | Silang | Philippines | Southern Tagalog | 156,137 |
@@ -1018,8 +1018,8 @@
 | Jaffna | Sri Lanka | Northern | 149,000 |
 | Khoy | Iran | West Azerbaidzan | 148,944 |
 | Hat Yai | Thailand | Songkhla | 148,632 |
+| Ji??an | China | Jiangxi | 148,583 |
 | Karimnagar | India | Andhra Pradesh | 148,583 |
-| Ji´an | China | Jiangxi | 148,583 |
 | Bharatpur | India | Rajasthan | 148,519 |
 | Longkou | China | Shandong | 148,362 |
 | Sikar | India | Rajasthan | 148,272 |
@@ -1051,20 +1051,20 @@
 | Iruma | Japan | Saitama | 145,922 |
 | Lalitapur | Nepal | Central | 145,847 |
 | Jhelum | Pakistan | Punjab | 145,800 |
-| Çorum | Turkey | Çorum | 145,495 |
+| ??orum | Turkey | ??orum | 145,495 |
 | Ota | Japan | Gumma | 145,317 |
 | Vung Tau | Vietnam | Ba Ria-Vung Tau | 145,145 |
 | Bhusawal | India | Maharashtra | 145,143 |
 | Khandwa | India | Madhya Pradesh | 145,133 |
 | Karawang | Indonesia | West Java | 145,000 |
-| Kütahya | Turkey | Kütahya | 144,761 |
+| K??tahya | Turkey | K??tahya | 144,761 |
 | Yulin | China | Guangxi | 144,467 |
 | Malayer | Iran | Hamadan | 144,373 |
 | Yamuna Nagar | India | Haryana | 144,346 |
 | al-Qamishliya | Syria | al-Hasaka | 144,286 |
 | Santa Maria | Philippines | Central Luzon | 144,282 |
 | Jinhua | China | Zhejiang | 144,280 |
-| Liu´an | China | Anhui | 144,248 |
+| Liu??an | China | Anhui | 144,248 |
 | Hatay (Antakya) | Turkey | Hatay | 143,982 |
 | Sonipat (Sonepat) | India | Haryana | 143,922 |
 | Tenali | India | Andhra Pradesh | 143,726 |
@@ -1104,10 +1104,10 @@
 | Ome | Japan | Tokyo-to | 139,216 |
 | Ingraj Bazar (English Bazar) | India | West Bengali | 139,204 |
 | Chong-up | South Korea | Chollabuk | 139,111 |
-| Da´an | China | Jilin | 138,963 |
+| Da??an | China | Jilin | 138,963 |
 | Kadoma | Japan | Osaka | 138,953 |
 | Timkur | India | Karnataka | 138,903 |
-| Ürgenc | Uzbekistan | Khorazm | 138,900 |
+| ??rgenc | Uzbekistan | Khorazm | 138,900 |
 | Monywa | Myanmar | Sagaing | 138,600 |
 | Jaramana | Syria | Damaskos | 138,469 |
 | Qods | Iran | Teheran | 138,278 |
@@ -1116,7 +1116,7 @@
 | Lengshuijiang | China | Hunan | 137,994 |
 | Naga | Philippines | Bicol | 137,810 |
 | Hafar al-Batin | Saudi Arabia | al-Sharqiya | 137,800 |
-| Batumi | Georgia | Adzaria [Atšara] | 137,700 |
+| Batumi | Georgia | Adzaria [At??ara] | 137,700 |
 | Jacobabad | Pakistan | Sind | 137,700 |
 | Sittwe (Akyab) | Myanmar | Rakhine | 137,600 |
 | al-Rusayfa | Jordan | al-Zarqa | 137,247 |
@@ -1163,8 +1163,8 @@
 | Shihung | South Korea | Kyonggi | 133,443 |
 | Shikarpur | Pakistan | Sind | 133,300 |
 | Barrackpur | India | West Bengali | 133,265 |
-| Miyakonojo | Japan | Miyazaki | 133,183 |
 | Linhe | China | Inner Mongolia | 133,183 |
+| Miyakonojo | Japan | Miyazaki | 133,183 |
 | Bharuch (Broach) | India | Gujarat | 133,102 |
 | Wuwei | China | Gansu | 133,101 |
 | Khanewal | Pakistan | Punjab | 133,000 |
@@ -1186,7 +1186,7 @@
 | Taunggyi (Taunggye) | Myanmar | Shan | 131,500 |
 | Kongju | South Korea | Chungchongnam | 131,229 |
 | Duma | Syria | Damaskos | 131,158 |
-| Huai´an | China | Jiangsu | 131,149 |
+| Huai??an | China | Jiangsu | 131,149 |
 | Sambalpur | India | Orissa | 131,138 |
 | Yongju | South Korea | Kyongsangbuk | 131,097 |
 | Marawi | Philippines | Central Mindanao | 131,090 |
@@ -1280,12 +1280,12 @@
 | Chaohu | China | Anhui | 123,676 |
 | Malaybalay | Philippines | Northern Mindanao | 123,672 |
 | Matsusaka | Japan | Mie | 123,582 |
-| Kökshetau | Kazakstan | North Kazakstan | 123,400 |
+| K??kshetau | Kazakstan | North Kazakstan | 123,400 |
 | Edirne | Turkey | Edirne | 123,383 |
 | Laohekou | China | Hubei | 123,366 |
 | Gandhinagar | India | Gujarat | 123,359 |
 | Dujiangyan | China | Sichuan | 123,357 |
-| Çorlu | Turkey | Tekirdag | 123,300 |
+| ??orlu | Turkey | Tekirdag | 123,300 |
 | Palghat (Palakkad) | India | Kerala | 123,289 |
 | Isesaki | Japan | Gumma | 123,285 |
 | Zhumadian | China | Henan | 123,232 |
@@ -1342,7 +1342,7 @@
 | Kuytun | China | Xinxiang | 118,553 |
 | Surigao | Philippines | Caraga | 118,534 |
 | Kiryu | Japan | Gumma | 118,326 |
-| Karabük | Turkey | Karabük | 118,285 |
+| Karab??k | Turkey | Karab??k | 118,285 |
 | San Carlos | Philippines | Western Visayas | 118,259 |
 | Kilis | Turkey | Kilis | 118,245 |
 | Neyveli | India | Tamil Nadu | 118,080 |
@@ -1386,7 +1386,7 @@
 | Ajman | United Arab Emirates | Ajman | 114,395 |
 | Cianjur | Indonesia | West Java | 114,300 |
 | Renqiu | China | Hebei | 114,256 |
-| Phan Thiêt | Vietnam | Binh Thuan | 114,236 |
+| Phan Thi??t | Vietnam | Binh Thuan | 114,236 |
 | Rajapalaiyam | India | Tamil Nadu | 114,202 |
 | Titagarh | India | West Bengali | 114,085 |
 | Yuyao | China | Zhejiang | 114,065 |
@@ -1398,7 +1398,7 @@
 | Yongchon | South Korea | Kyongsangbuk | 113,511 |
 | Sachon | South Korea | Kyongsangnam | 113,494 |
 | Hathras | India | Uttar Pradesh | 113,285 |
-| Yan´an | China | Shaanxi | 113,277 |
+| Yan??an | China | Shaanxi | 113,277 |
 | Malasiqui | Philippines | Ilocos | 113,190 |
 | Beihai | China | Guangxi | 112,673 |
 | Xuangzhou | China | Anhui | 112,673 |
@@ -1411,7 +1411,7 @@
 | Kiziltepe | Turkey | Mardin | 112,000 |
 | Tanshui | Taiwan | Taipei | 111,882 |
 | Pallavaram | India | Tamil Nadu | 111,866 |
-| Yong´an | China | Fujian | 111,762 |
+| Yong??an | China | Fujian | 111,762 |
 | Sohumi | Georgia | Abhasia [Aphazeti] | 111,700 |
 | Higashikurume | Japan | Tokyo-to | 111,666 |
 | Ikoma | Japan | Nara | 111,645 |
@@ -1460,7 +1460,7 @@
 | Shivapuri | India | Madhya Pradesh | 108,277 |
 | Muroran | Japan | Hokkaido | 108,275 |
 | San Jose | Philippines | Central Luzon | 108,254 |
-| Ara´ar | Saudi Arabia | al-Khudud al-Samaliy | 108,100 |
+| Ara??ar | Saudi Arabia | al-Khudud al-Samaliy | 108,100 |
 | al-Raqqa | Syria | al-Raqqa | 108,020 |
 | Bidar | India | Karnataka | 108,016 |
 | Komatsu | Japan | Ishikawa | 107,937 |
@@ -1514,7 +1514,7 @@
 | Qutubullapur | India | Andhra Pradesh | 105,380 |
 | Beawar | India | Rajasthan | 105,363 |
 | Jinchang | China | Gansu | 105,287 |
-| Fu´an | China | Fujian | 105,265 |
+| Fu??an | China | Fujian | 105,265 |
 | Citeureup | Indonesia | West Java | 105,100 |
 | Siem Reap | Cambodia | Siem Reap | 105,100 |
 | Suqian | China | Jiangsu | 105,021 |
@@ -1538,8 +1538,8 @@
 | Pemalang | Indonesia | Central Java | 103,500 |
 | Tando Adam | Pakistan | Sind | 103,400 |
 | Klaten | Indonesia | Central Java | 103,300 |
-| Ibb | Yemen | Ibb | 103,300 |
 | Jaranwala | Pakistan | Punjab | 103,300 |
+| Ibb | Yemen | Ibb | 103,300 |
 | Pabna | Bangladesh | Rajshahi | 103,277 |
 | Danjiangkou | China | Hubei | 103,211 |
 | Tajimi | Japan | Gifu | 103,171 |
@@ -1599,8 +1599,8 @@
 | Kanchrapara | India | West Bengali | 100,194 |
 | Tonk | India | Rajasthan | 100,079 |
 | Nishio | Japan | Chiba | 100,032 |
-| Malita | Philippines | Southern Mindanao | 100,000 |
 | Negombo | Sri Lanka | Western | 100,000 |
+| Malita | Philippines | Southern Mindanao | 100,000 |
 | Nazilli | Turkey | Aydin | 99,900 |
 | Dipolog | Philippines | Western Mindanao | 99,862 |
 | Tokai | Japan | Aichi | 99,738 |
@@ -1611,7 +1611,7 @@
 | Pingliang | China | Gansu | 99,265 |
 | Fuqing | China | Fujian | 99,193 |
 | al-Qatif | Saudi Arabia | al-Sharqiya | 98,900 |
-| Touliu | Taiwan | Yünlin | 98,900 |
+| Touliu | Taiwan | Y??nlin | 98,900 |
 | Champdani | India | West Bengali | 98,818 |
 | Danao | Philippines | Central Visayas | 98,781 |
 | Inazawa | Japan | Aichi | 98,746 |
@@ -1655,8 +1655,8 @@
 | Patan | India | Gujarat | 96,109 |
 | Urasoe | Japan | Okinawa | 96,002 |
 | Ahmadpur East | Pakistan | Punjab | 96,000 |
+| Ya??an | China | Sichuan | 95,900 |
 | Purwakarta | Indonesia | West Java | 95,900 |
-| Ya´an | China | Sichuan | 95,900 |
 | Garut | Indonesia | West Java | 95,800 |
 | Jinzhou | China | Liaoning | 95,761 |
 | Mandasor | India | Madhya Pradesh | 95,758 |
@@ -1685,7 +1685,7 @@
 | Nakhon Pathom | Thailand | Nakhon Pathom | 94,100 |
 | Gorontalo | Indonesia | Sulawesi Utara | 94,058 |
 | Emeishan | China | Sichuan | 94,000 |
-| Mingəçevir | Azerbaijan | Mingəçevir | 93,900 |
+| Ming????evir | Azerbaijan | Ming????evir | 93,900 |
 | al-Hawiya | Saudi Arabia | Mekka | 93,900 |
 | Onomichi | Japan | Hiroshima | 93,756 |
 | Chhindwara | India | Madhya Pradesh | 93,731 |
@@ -1743,7 +1743,7 @@
 | Birgunj | Nepal | Central | 90,639 |
 | Ligao | Philippines | Bicol | 90,603 |
 | Baidyabati | India | West Bengali | 90,601 |
-| Inegöl | Turkey | Bursa | 90,500 |
+| Ineg??l | Turkey | Bursa | 90,500 |
 | Dera Ismail Khan | Pakistan | Nothwest Border Prov | 90,400 |
 | Morvi | India | Gujarat | 90,357 |
 | Rehovot | Israel | Ha Merkaz | 90,300 |

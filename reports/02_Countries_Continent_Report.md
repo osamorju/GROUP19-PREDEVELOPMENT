@@ -30,7 +30,7 @@
 | KAZ | Kazakstan | Asia | Southern and Central Asia | 16,223,000 | Astana |
 | SYR | Syria | Asia | Middle East | 16,125,000 | Damascus |
 | KHM | Cambodia | Asia | Southeast Asia | 11,168,000 | Phnom Penh |
-| AZE | Azerbaijan | Asia | Middle East | 7,734,000 | Bakı |
+| AZE | Azerbaijan | Asia | Middle East | 7,734,000 | Bak?? |
 | HKG | Hong Kong | Asia | Eastern Asia | 6,782,000 | Victoria |
 | ISR | Israel | Asia | Middle East | 6,217,000 | Jerusalem |
 | TJK | Tajikistan | Asia | Southern and Central Asia | 6,188,000 | Dushanbe |

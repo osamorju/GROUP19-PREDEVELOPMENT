@@ -9,7 +9,7 @@
 | SAU | Saudi Arabia | Asia | Middle East | 21,607,000 | Riyadh |
 | YEM | Yemen | Asia | Middle East | 18,112,000 | Sanaa |
 | SYR | Syria | Asia | Middle East | 16,125,000 | Damascus |
-| AZE | Azerbaijan | Asia | Middle East | 7,734,000 | Bakı |
+| AZE | Azerbaijan | Asia | Middle East | 7,734,000 | Bak?? |
 | ISR | Israel | Asia | Middle East | 6,217,000 | Jerusalem |
 | JOR | Jordan | Asia | Middle East | 5,083,000 | Amman |
 | GEO | Georgia | Asia | Middle East | 4,968,000 | Tbilisi |

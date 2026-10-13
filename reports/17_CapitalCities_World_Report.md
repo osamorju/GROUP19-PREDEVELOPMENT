@@ -6,7 +6,7 @@
 | --- | --- | ---: |
 | Seoul | South Korea | 9,981,619 |
 | Jakarta | Indonesia | 9,604,900 |
-| Ciudad de México | Mexico | 8,591,309 |
+| Ciudad de M??xico | Mexico | 8,591,309 |
 | Moscow | Russian Federation | 8,389,200 |
 | Tokyo | Japan | 7,980,230 |
 | Peking | China | 7,472,000 |
@@ -15,7 +15,7 @@
 | Teheran | Iran | 6,758,845 |
 | Lima | Peru | 6,464,693 |
 | Bangkok | Thailand | 6,320,174 |
-| Santafé de Bogotá | Colombia | 6,260,862 |
+| Santaf?? de Bogot?? | Colombia | 6,260,862 |
 | Kinshasa | Congo, The Democratic Republic of the | 5,064,000 |
 | Santiago de Chile | Chile | 4,703,954 |
 | Baghdad | Iraq | 4,336,000 |
@@ -40,20 +40,20 @@
 | Luanda | Angola | 2,022,000 |
 | Bucuresti | Romania | 2,016,131 |
 | Caracas | Venezuela | 1,975,294 |
-| Brasília | Brazil | 1,969,868 |
+| Bras??lia | Brazil | 1,969,868 |
 | Budapest | Hungary | 1,811,552 |
-| Bakı | Azerbaijan | 1,787,800 |
+| Bak?? | Azerbaijan | 1,787,800 |
 | Kabul | Afghanistan | 1,780,000 |
 | Tripoli | Libyan Arab Jamahiriya | 1,682,000 |
 | Minsk | Belarus | 1,674,000 |
 | Warszawa | Poland | 1,615,369 |
-| Santo Domingo de Guzmán | Dominican Republic | 1,609,966 |
+| Santo Domingo de Guzm??n | Dominican Republic | 1,609,966 |
 | Wien | Austria | 1,608,144 |
 | Manila | Philippines | 1,581,082 |
 | Quito | Ecuador | 1,573,458 |
 | Hanoi | Vietnam | 1,410,000 |
 | Harare | Zimbabwe | 1,410,000 |
-| Yaoundé | Cameroon | 1,372,800 |
+| Yaound?? | Cameroon | 1,372,800 |
 | Damascus | Syria | 1,347,000 |
 | Lusaka | Zambia | 1,317,000 |
 | Victoria | Hong Kong | 1,312,637 |
@@ -103,19 +103,19 @@
 | Washington | United States | 572,059 |
 | Phnom Penh | Cambodia | 570,155 |
 | Lisboa | Portugal | 563,210 |
-| Asunción | Paraguay | 557,776 |
+| Asunci??n | Paraguay | 557,776 |
 | Helsinki [Helsingfors] | Finland | 555,474 |
 | Ashgabat | Turkmenistan | 540,600 |
 | Vientiane | Laos | 531,800 |
-| N´Djaména | Chad | 530,965 |
+| N??Djam??na | Chad | 530,965 |
 | Islamabad | Pakistan | 524,500 |
 | Bangui | Central African Republic | 524,000 |
 | Dushanbe | Tajikistan | 524,000 |
 | Oslo | Norway | 508,726 |
 | Sanaa | Yemen | 503,600 |
-| København | Denmark | 495,699 |
+| K??benhavn | Denmark | 495,699 |
 | Dublin | Ireland | 481,854 |
-| Ciudad de Panamá | Panama | 471,373 |
+| Ciudad de Panam?? | Panama | 471,373 |
 | Bratislava | Slovakia | 448,292 |
 | Skopje | Macedonia | 444,299 |
 | Macao | Macao | 437,500 |
@@ -128,12 +128,12 @@
 | Tallinn | Estonia | 403,981 |
 | Abu Dhabi | United Arab Emirates | 398,695 |
 | Djibouti | Djibouti | 383,000 |
-| Lomé | Togo | 375,000 |
+| Lom?? | Togo | 375,000 |
 | Sarajevo | Bosnia and Herzegovina | 360,000 |
 | Doha | Qatar | 355,000 |
 | Gaza | Palestine | 353,632 |
 | Abuja | Nigeria | 350,100 |
-| San José | Costa Rica | 339,131 |
+| San Jos?? | Costa Rica | 339,131 |
 | Ottawa | Canada | 335,277 |
 | Canberra | Australia | 322,723 |
 | Astana | Kazakstan | 311,200 |
@@ -151,29 +151,29 @@
 | Porto-Novo | Benin | 194,000 |
 | Dodoma | Tanzania | 189,000 |
 | Nassau | Bahamas | 172,000 |
-| El-Aaiún | Western Sahara | 169,000 |
+| El-Aai??n | Western Sahara | 169,000 |
 | Windhoek | Namibia | 169,000 |
 | Wellington | New Zealand | 166,700 |
 | al-Manama | Bahrain | 148,000 |
 | Port-Louis | Mauritius | 138,200 |
 | Bruxelles [Brussel] | Belgium | 133,859 |
-| Saint-Denis | Réunion | 131,480 |
-| Yamoussoukro | Côte d’Ivoire | 130,000 |
+| Saint-Denis | R??union | 131,480 |
+| Yamoussoukro | C??te d???Ivoire | 130,000 |
 | Bern | Switzerland | 122,700 |
 | Paramaribo | Suriname | 112,000 |
-| Reykjavík | Iceland | 109,184 |
+| Reykjav??k | Iceland | 109,184 |
 | Kingston | Jamaica | 103,962 |
 | Praia | Cape Verde | 94,800 |
 | Fort-de-France | Martinique | 94,050 |
-| Luxembourg [Luxemburg/Lëtzebuerg] | Luxembourg | 80,700 |
+| Luxembourg [Luxemburg/L??tzebuerg] | Luxembourg | 80,700 |
 | Suva | Fiji Islands | 77,366 |
-| Nouméa | New Caledonia | 76,293 |
+| Noum??a | New Caledonia | 76,293 |
 | Male | Maldives | 71,000 |
 | Mbabane | Swaziland | 61,000 |
 | Masqat | Oman | 51,969 |
 | Cayenne | French Guiana | 50,699 |
 | Honiara | Solomon Islands | 50,100 |
-| São Tomé | Sao Tome and Principe | 49,541 |
+| S??o Tom?? | Sao Tome and Principe | 49,541 |
 | Dili | East Timor | 47,900 |
 | Port-of-Spain | Trinidad and Tobago | 43,396 |
 | Banjul | Gambia | 42,326 |
@@ -187,15 +187,15 @@
 | Dalap-Uliga-Darrit | Marshall Islands | 28,000 |
 | Gibraltar | Gibraltar | 27,025 |
 | Papeete | French Polynesia | 25,553 |
-| Saint John´s | Antigua and Barbuda | 24,000 |
-| Nuku´alofa | Tonga | 22,400 |
+| Saint John??s | Antigua and Barbuda | 24,000 |
+| Nuku??alofa | Tonga | 22,400 |
 | Thimphu | Bhutan | 22,000 |
 | Bandar Seri Begawan | Brunei | 21,484 |
 | Andorra la Vella | Andorra | 21,189 |
 | George Town | Cayman Islands | 19,600 |
 | Kingstown | Saint Vincent and the Grenadines | 17,100 |
 | Roseau | Dominica | 16,243 |
-| Tórshavn | Faroe Islands | 14,542 |
+| T??rshavn | Faroe Islands | 14,542 |
 | Nuuk | Greenland | 13,445 |
 | Charlotte Amalie | Virgin Islands, U.S. | 13,000 |
 | Basse-Terre | Guadeloupe | 12,433 |
@@ -212,7 +212,7 @@
 | Saint-Pierre | Saint Pierre and Miquelon | 5,808 |
 | Vaduz | Liechtenstein | 5,043 |
 | Cockburn Town | Turks and Caicos Islands | 4,800 |
-| Saint George´s | Grenada | 4,621 |
+| Saint George??s | Grenada | 4,621 |
 | Funafuti | Tuvalu | 4,600 |
 | Willemstad | Netherlands Antilles | 2,345 |
 | Fagatogo | American Samoa | 2,323 |
@@ -225,14 +225,14 @@
 | Longyearbyen | Svalbard and Jan Mayen | 1,438 |
 | Monaco-Ville | Monaco | 1,234 |
 | Hamilton | Bermuda | 1,200 |
-| Agaña | Guam | 1,139 |
+| Aga??a | Guam | 1,139 |
 | Mata-Utu | Wallis and Futuna | 1,137 |
 | Kingston | Norfolk Island | 800 |
 | Flying Fish Cove | Christmas Island | 700 |
 | Alofi | Niue | 682 |
 | The Valley | Anguilla | 595 |
 | Yaren | Nauru | 559 |
-| Città del Vaticano | Holy See (Vatican City State) | 455 |
+| Citt?? del Vaticano | Holy See (Vatican City State) | 455 |
 | Fakaofo | Tokelau | 300 |
 | West Island | Cocos (Keeling) Islands | 167 |
 | Adamstown | Pitcairn | 42 |

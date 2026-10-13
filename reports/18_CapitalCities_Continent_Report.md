@@ -19,7 +19,7 @@
 | Taipei | Taiwan | 2,641,312 |
 | Pyongyang | North Korea | 2,484,000 |
 | Toskent | Uzbekistan | 2,117,500 |
-| Bakı | Azerbaijan | 1,787,800 |
+| Bak?? | Azerbaijan | 1,787,800 |
 | Kabul | Afghanistan | 1,780,000 |
 | Manila | Philippines | 1,581,082 |
 | Hanoi | Vietnam | 1,410,000 |

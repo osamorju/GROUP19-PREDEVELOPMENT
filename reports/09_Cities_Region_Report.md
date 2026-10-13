@@ -19,7 +19,7 @@
 | Jokohama [Yokohama] | Japan | Kanagawa | 3,339,594 |
 | Nanking [Nanjing] | China | Jiangsu | 2,870,300 |
 | Changchun | China | Jilin | 2,812,000 |
-| Xi´an | China | Shaanxi | 2,761,400 |
+| Xi??an | China | Shaanxi | 2,761,400 |
 | Dalian | China | Liaoning | 2,697,000 |
 | Taipei | Taiwan | Taipei | 2,641,312 |
 | Qingdao | China | Shandong | 2,596,000 |
@@ -49,7 +49,7 @@
 | Hefei | China | Anhui | 1,369,100 |
 | Kwangju | South Korea | Kwangju | 1,368,341 |
 | Victoria | Hong Kong | Hongkong | 1,312,637 |
-| Urumtši [Ürümqi] | China | Xinxiang | 1,310,100 |
+| Urumt??i [??r??mqi] | China | Xinxiang | 1,310,100 |
 | Fukuoka | Japan | Fukuoka | 1,308,379 |
 | Kawasaki | Japan | Kanagawa | 1,217,359 |
 | Anshan | China | Liaoning | 1,200,000 |
@@ -194,7 +194,7 @@
 | Lianyungang | China | Jiangsu | 354,139 |
 | Xianyang | China | Shaanxi | 352,125 |
 | Kwangmyong | South Korea | Kyonggi | 350,914 |
-| Tai´an | China | Shandong | 350,696 |
+| Tai??an | China | Shandong | 350,696 |
 | Chifeng | China | Inner Mongolia | 350,077 |
 | Shaoguan | China | Guangdong | 350,043 |
 | Toyota | Japan | Aichi | 346,090 |
@@ -228,7 +228,7 @@
 | Yangzhou | China | Jiangsu | 312,892 |
 | Kumi | South Korea | Kyongsangbuk | 311,431 |
 | Dongwan | China | Guangdong | 308,669 |
-| Ma´anshan | China | Anhui | 305,421 |
+| Ma??anshan | China | Anhui | 305,421 |
 | Miyazaki | Japan | Miyazaki | 303,784 |
 | Foshan | China | Guangdong | 303,160 |
 | Yueyang | China | Hunan | 302,800 |
@@ -353,7 +353,7 @@
 | Qianjiang | China | Hubei | 205,504 |
 | Chungju | South Korea | Chungchongbuk | 205,206 |
 | Baiyin | China | Gansu | 204,970 |
-| Bei´an | China | Heilongjiang | 204,899 |
+| Bei??an | China | Heilongjiang | 204,899 |
 | Kasukabe | Japan | Saitama | 201,838 |
 | Chofu | Japan | Tokyo-to | 201,585 |
 | Yixing | China | Jiangsu | 200,824 |
@@ -462,7 +462,7 @@
 | Korla | China | Xinxiang | 159,344 |
 | Kumagaya | Japan | Saitama | 157,171 |
 | Wanxian | China | Sichuan | 156,823 |
-| Rui´an | China | Zhejiang | 156,468 |
+| Rui??an | China | Zhejiang | 156,468 |
 | Zhoushan | China | Zhejiang | 156,317 |
 | Liangcheng | China | Shandong | 156,307 |
 | Moriguchi | Japan | Osaka | 155,941 |
@@ -483,7 +483,7 @@
 | Pingdu | China | Shandong | 150,123 |
 | Matsue | Japan | Shimane | 149,821 |
 | Kawanishi | Japan | Hyogo | 149,794 |
-| Ji´an | China | Jiangxi | 148,583 |
+| Ji??an | China | Jiangxi | 148,583 |
 | Longkou | China | Shandong | 148,362 |
 | Langfang | China | Hebei | 148,105 |
 | Hitachinaka | Japan | Tokyo-to | 148,006 |
@@ -500,7 +500,7 @@
 | Ota | Japan | Gumma | 145,317 |
 | Yulin | China | Guangxi | 144,467 |
 | Jinhua | China | Zhejiang | 144,280 |
-| Liu´an | China | Anhui | 144,248 |
+| Liu??an | China | Anhui | 144,248 |
 | Omuta | Japan | Fukuoka | 142,889 |
 | Shuangcheng | China | Heilongjiang | 142,659 |
 | Suizhou | China | Hubei | 142,302 |
@@ -511,7 +511,7 @@
 | Longjing | China | Jilin | 139,417 |
 | Ome | Japan | Tokyo-to | 139,216 |
 | Chong-up | South Korea | Chollabuk | 139,111 |
-| Da´an | China | Jilin | 138,963 |
+| Da??an | China | Jilin | 138,963 |
 | Kadoma | Japan | Osaka | 138,953 |
 | Yamaguchi | Japan | Yamaguchi | 138,210 |
 | Lengshuijiang | China | Hunan | 137,994 |
@@ -534,8 +534,8 @@
 | Binzhou | China | Shandong | 133,555 |
 | Joetsu | Japan | Niigata | 133,505 |
 | Shihung | South Korea | Kyonggi | 133,443 |
-| Miyakonojo | Japan | Miyazaki | 133,183 |
 | Linhe | China | Inner Mongolia | 133,183 |
+| Miyakonojo | Japan | Miyazaki | 133,183 |
 | Wuwei | China | Gansu | 133,101 |
 | Duyun | China | Guizhou | 132,971 |
 | Misato | Japan | Saitama | 132,957 |
@@ -548,7 +548,7 @@
 | Tiefa | China | Liaoning | 131,807 |
 | Tong-yong | South Korea | Kyongsangnam | 131,717 |
 | Kongju | South Korea | Chungchongnam | 131,229 |
-| Huai´an | China | Jiangsu | 131,149 |
+| Huai??an | China | Jiangsu | 131,149 |
 | Yongju | South Korea | Kyongsangbuk | 131,097 |
 | Daito | Japan | Osaka | 130,594 |
 | Seto | Japan | Aichi | 130,470 |
@@ -625,13 +625,13 @@
 | Kaili | China | Guizhou | 113,958 |
 | Yongchon | South Korea | Kyongsangbuk | 113,511 |
 | Sachon | South Korea | Kyongsangnam | 113,494 |
-| Yan´an | China | Shaanxi | 113,277 |
+| Yan??an | China | Shaanxi | 113,277 |
 | Beihai | China | Guangxi | 112,673 |
 | Xuangzhou | China | Anhui | 112,673 |
 | Quzhou | China | Zhejiang | 112,373 |
 | Kueishan | Taiwan |  | 112,195 |
 | Tanshui | Taiwan | Taipei | 111,882 |
-| Yong´an | China | Fujian | 111,762 |
+| Yong??an | China | Fujian | 111,762 |
 | Higashikurume | Japan | Tokyo-to | 111,666 |
 | Ikoma | Japan | Nara | 111,645 |
 | Kitami | Japan | Hokkaido | 111,295 |
@@ -666,7 +666,7 @@
 | Sanda | Japan | Hyogo | 105,643 |
 | Hikone | Japan | Shiga | 105,508 |
 | Jinchang | China | Gansu | 105,287 |
-| Fu´an | China | Fujian | 105,265 |
+| Fu??an | China | Fujian | 105,265 |
 | Suqian | China | Jiangsu | 105,021 |
 | Nantou | Taiwan | Nantou | 104,723 |
 | Shishou | China | Hubei | 104,571 |
@@ -696,7 +696,7 @@
 | Tokai | Japan | Aichi | 99,738 |
 | Pingliang | China | Gansu | 99,265 |
 | Fuqing | China | Fujian | 99,193 |
-| Touliu | Taiwan | Yünlin | 98,900 |
+| Touliu | Taiwan | Y??nlin | 98,900 |
 | Inazawa | Japan | Aichi | 98,746 |
 | Xinzhou | China | Shanxi | 98,667 |
 | Jieyang | China | Guangdong | 98,531 |
@@ -708,7 +708,7 @@
 | Fujimi | Japan | Saitama | 96,972 |
 | Tsaotun | Taiwan | Nantou | 96,800 |
 | Urasoe | Japan | Okinawa | 96,002 |
-| Ya´an | China | Sichuan | 95,900 |
+| Ya??an | China | Sichuan | 95,900 |
 | Jinzhou | China | Liaoning | 95,761 |
 | Yonezawa | Japan | Yamagata | 95,592 |
 | Konan | Japan | Aichi | 95,521 |

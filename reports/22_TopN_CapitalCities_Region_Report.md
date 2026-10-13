@@ -7,7 +7,7 @@
 | Baghdad | Iraq | 4,336,000 |
 | Riyadh | Saudi Arabia | 3,324,000 |
 | Ankara | Turkey | 3,038,159 |
-| Bakı | Azerbaijan | 1,787,800 |
+| Bak?? | Azerbaijan | 1,787,800 |
 | Damascus | Syria | 1,347,000 |
 | Yerevan | Armenia | 1,248,700 |
 | Tbilisi | Georgia | 1,235,200 |
