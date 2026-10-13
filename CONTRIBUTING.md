@@ -2,7 +2,7 @@
 
 # Contributing to Group 19 DevOps Coursework
 
-We welcome contributions from the active project contributors. For the current stage of the project, access and contribution are limited to the project owner and **Drewid101** until additional collaborators are invited directly in GitHub. This is a repository permission setting, not a local Git setting.
+We welcome contributions from the active project contributors. For the current stage of the project, access and contribution are limited to the project owner **osamorjude** and **Drewid101** until additional collaborators are invited directly in GitHub. This is a repository permission setting, not a local Git setting.
 
 By contributing, you help improve the **Population Reporting System** and the overall **DevOps coursework project**. We strive to create a collaborative and positive environment, and we ask that all contributors follow these guidelines to maintain consistency and ensure smooth collaboration.
 
